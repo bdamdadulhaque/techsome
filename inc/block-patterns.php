@@ -134,6 +134,59 @@ function techsome_register_block_patterns() {
 			<!-- wp:paragraph --><p>' . esc_html__( 'Tips, updates, and guides to get the most out of your product.', 'techsome' ) . '</p><!-- /wp:paragraph -->',
 			'categories'  => array( 'techsome' ),
 		),
+		'pricing-free-pro' => array(
+			'title'       => __( 'Pricing Table – Free & Pro', 'techsome' ),
+			'description' => __( 'Two-column pricing table (Free vs Pro) with features and CTA. Edit the button link to your Freemius checkout.', 'techsome' ),
+			'content'     => '<!-- wp:html -->
+			<div class="techsome-pricing">
+				<h2 class="techsome-pricing__title">' . esc_html__( 'Choose Your Plan', 'techsome' ) . '</h2>
+				<p class="techsome-pricing__subtitle">' . esc_html__( 'Start free or unlock all features with Pro.', 'techsome' ) . '</p>
+				<div class="techsome-pricing-table">
+					<div class="techsome-pricing-plan techsome-pricing-plan--free">
+						<div class="techsome-pricing-plan__head">
+							<h3 class="techsome-pricing-plan__name">' . esc_html__( 'Free', 'techsome' ) . '</h3>
+							<p class="techsome-pricing-plan__price">$0</p>
+							<p class="techsome-pricing-plan__price-note">' . esc_html__( 'forever', 'techsome' ) . '</p>
+						</div>
+						<ul class="techsome-pricing-plan__features">
+							<li>' . esc_html__( 'Core donation forms', 'techsome' ) . '</li>
+							<li>' . esc_html__( 'Basic campaigns', 'techsome' ) . '</li>
+							<li>' . esc_html__( 'Email support', 'techsome' ) . '</li>
+							<li>' . esc_html__( '1 site', 'techsome' ) . '</li>
+						</ul>
+						<div class="techsome-pricing-plan__foot">
+							<a class="techsome-btn techsome-btn--primary" href="#">' . esc_html__( 'Download Free', 'techsome' ) . '</a>
+						</div>
+					</div>
+					<div class="techsome-pricing-plan techsome-pricing-plan--pro techsome-pricing-plan--featured" data-badge="' . esc_attr__( 'Popular', 'techsome' ) . '">
+						<div class="techsome-pricing-plan__head">
+							<h3 class="techsome-pricing-plan__name">' . esc_html__( 'Pro', 'techsome' ) . '</h3>
+							<p class="techsome-pricing-plan__price">' . esc_html__( 'From $99/year', 'techsome' ) . '</p>
+						</div>
+						<ul class="techsome-pricing-plan__features">
+							<li>' . esc_html__( 'Everything in Free', 'techsome' ) . '</li>
+							<li>' . esc_html__( 'Unlimited campaigns', 'techsome' ) . '</li>
+							<li>' . esc_html__( 'Priority support', 'techsome' ) . '</li>
+							<li>' . esc_html__( 'Unlimited sites', 'techsome' ) . '</li>
+							<li>' . esc_html__( 'Advanced reporting', 'techsome' ) . '</li>
+						</ul>
+						<div class="techsome-pricing-plan__foot">
+							<a class="techsome-btn techsome-btn--primary" href="#">' . esc_html__( 'Get Pro', 'techsome' ) . '</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /wp:html -->',
+			'categories'  => array( 'techsome' ),
+		),
+		'service-pricing-cards' => array(
+			'title'       => __( 'Service Pricing Cards', 'techsome' ),
+			'description' => __( 'Three service cards: Installation, Customization, Ongoing Service. Edit titles, prices, and links.', 'techsome' ),
+			'content'     => '<!-- wp:shortcode -->
+			[techsome_services title="' . esc_attr__( 'Our Services', 'techsome' ) . '" subtitle="' . esc_attr__( 'Professional setup, customization, and ongoing support for CharityGlow.', 'techsome' ) . '"][techsome_service_card title="' . esc_attr__( 'Installation &amp; Setup', 'techsome' ) . '" description="' . esc_attr__( 'We install CharityGlow on your site, configure settings, and ensure everything works with your theme.', 'techsome' ) . '" price="' . esc_attr__( 'From $99', 'techsome' ) . '" button_text="' . esc_attr__( 'Get started', 'techsome' ) . '" button_url="#contact" icon="install"][techsome_service_card title="' . esc_attr__( 'Customization Service', 'techsome' ) . '" description="' . esc_attr__( 'Custom forms, branding, and workflows tailored to your organization.', 'techsome' ) . '" price="' . esc_attr__( 'From $199', 'techsome' ) . '" button_text="' . esc_attr__( 'Get started', 'techsome' ) . '" button_url="#contact" icon="customize"][techsome_service_card title="' . esc_attr__( 'Ongoing Service', 'techsome' ) . '" description="' . esc_attr__( 'Regular updates, backups, and priority support so you can focus on fundraising.', 'techsome' ) . '" price="' . esc_attr__( 'From $49/mo', 'techsome' ) . '" button_text="' . esc_attr__( 'Get started', 'techsome' ) . '" button_url="#contact" icon="ongoing"][/techsome_services]
+			<!-- /wp:shortcode -->',
+			'categories'  => array( 'techsome' ),
+		),
 	);
 
 	foreach ( $patterns as $name => $args ) {

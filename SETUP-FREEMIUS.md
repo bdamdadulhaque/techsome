@@ -29,7 +29,13 @@ These URLs are used for “Get the Plugin” and “Get the Theme” buttons acr
 
 ---
 
-## 3. Create a product page for the CharityGlow plugin
+## 3. Add a pricing table (Free vs Pro) before checkout
+
+On your plugin or theme product page, add a **pricing table** so visitors see Free and Pro plans before clicking through to Freemius. In the page content add the shortcode `[techsome_pricing_table]` (optionally with `pro_url="..."` and other attributes), or use the block pattern **Insert → Patterns → Techsome → Pricing Table – Free & Pro** and edit the Pro button link to your Freemius checkout URL.
+
+---
+
+## 4. Create a product page for the CharityGlow plugin
 
 1. **Pages → Add New**.
 2. Title: e.g. **CharityGlow Plugin**.
@@ -47,7 +53,37 @@ Optionally create a similar page for **CharityGlow Theme**, choose **Product Lan
 
 ---
 
-## 4. Link from the menu and homepage
+## 5. Services page (Installation, Customization, Ongoing Service)
+
+To sell **services** (e.g. Installation & Setup, Customization, Ongoing Service):
+
+1. **Pages → Add New**.
+2. Title: e.g. **Services**.
+3. Optional: add intro text in the content area.
+4. In **Template**, choose **Services**.
+5. **Publish**.
+
+The template will show three default service cards (Installation & Setup, Customization Service, Ongoing Service) with placeholder prices and "Get started" buttons. To customize:
+
+- **Appearance → Customize → Products & Checkout (Freemius)**  
+  Set **Services – Contact / Get started URL** to your Contact page (or a booking URL) so "Get started" links there.
+- Edit the page and add the **Service Pricing Cards** pattern (Insert → Patterns → Techsome), or use shortcodes:
+
+  ```
+  [techsome_services title="Our Services" subtitle="..."]
+  [techsome_service_card title="Installation & Setup" description="..." price="From $99" button_url="/contact/" icon="install"]
+  [techsome_service_card title="Customization Service" description="..." price="From $199" button_url="/contact/" icon="customize"]
+  [techsome_service_card title="Ongoing Service" description="..." price="From $49/mo" button_url="/contact/" icon="ongoing"]
+  [/techsome_services]
+  ```
+
+  `icon` can be: `install`, `customize`, `support`, `ongoing`, `settings`.
+
+Add the Services page to your menu so customers can find it.
+
+---
+
+## 6. Link from the menu and homepage
 
 - Add the new “CharityGlow Plugin” (and “CharityGlow Theme”) pages to **Appearance → Menus** so they appear in the header/footer.
 - If your homepage uses the **Product-focused** or **Split** layout, the “Get the Plugin” and “Get the Theme” buttons there already use the URLs from **Products & Checkout (Freemius)**. No extra setup needed.
@@ -56,7 +92,7 @@ You can also set **Settings → Reading** to use a static **Homepage** and choos
 
 ---
 
-## 5. Optional: use shortcodes in any page
+## 7. Optional: use shortcodes in any page
 
 You can place checkout links or buttons anywhere (e.g. in content or a sidebar):
 

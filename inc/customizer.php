@@ -353,6 +353,23 @@ function techsome_customize_register( $wp_customize ) {
 			'description' => __( 'e.g. your Freemius or sales page for the theme.', 'techsome' ),
 		)
 	);
+	$wp_customize->add_setting(
+		'techsome_services_contact_url',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_url_raw',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		'techsome_services_contact_url',
+		array(
+			'type'        => 'url',
+			'label'       => __( 'Services – Contact / Get started URL', 'techsome' ),
+			'section'     => 'techsome_products',
+			'description' => __( 'Link for "Get started" on service cards (e.g. your Contact page).', 'techsome' ),
+		)
+	);
 
 	// --- Homepage ---
 	$wp_customize->add_section(

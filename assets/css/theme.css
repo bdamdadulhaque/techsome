@@ -1049,6 +1049,245 @@ textarea {
 }
 
 /* -------------------------------------------------------------------------
+   Pricing table (Free vs Pro)
+   ------------------------------------------------------------------------- */
+.techsome-pricing {
+	margin: 2.5rem 0;
+}
+.techsome-pricing__title {
+	text-align: center;
+	font-size: clamp(1.5rem, 3vw, 1.875rem);
+	font-weight: 700;
+	color: var(--techsome-secondary);
+	margin: 0 0 0.5rem;
+}
+.techsome-pricing__subtitle {
+	text-align: center;
+	color: var(--techsome-muted);
+	font-size: 1.0625rem;
+	margin: 0 0 2rem;
+	max-width: 36rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+.techsome-pricing-table {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+	max-width: 56rem;
+	margin: 0 auto;
+}
+@media (max-width: 639px) {
+	.techsome-pricing-table {
+		grid-template-columns: 1fr;
+	}
+}
+.techsome-pricing-plan {
+	background: var(--techsome-bg);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius-lg);
+	box-shadow: var(--techsome-shadow-sm);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	transition: box-shadow var(--techsome-transition), border-color var(--techsome-transition);
+}
+.techsome-pricing-plan:hover {
+	box-shadow: var(--techsome-shadow);
+	border-color: var(--techsome-border);
+}
+.techsome-pricing-plan--featured {
+	border-color: var(--techsome-primary);
+	box-shadow: 0 0 0 1px var(--techsome-primary);
+	position: relative;
+}
+.techsome-pricing-plan--featured::before {
+	content: attr(data-badge);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: var(--techsome-primary);
+	color: #fff;
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	text-align: center;
+	padding: 0.375rem 1rem;
+}
+.techsome-pricing-plan--featured .techsome-pricing-plan__head {
+	padding-top: 2.25rem;
+}
+.techsome-pricing-plan__head {
+	padding: 1.75rem 1.5rem 1.25rem;
+	text-align: center;
+	border-bottom: 1px solid var(--techsome-border);
+}
+.techsome-pricing-plan__name {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--techsome-secondary);
+	margin: 0 0 0.5rem;
+}
+.techsome-pricing-plan__price {
+	font-size: 2rem;
+	font-weight: 800;
+	color: var(--techsome-primary);
+	line-height: 1.2;
+	margin: 0;
+}
+.techsome-pricing-plan__price-note {
+	font-size: 0.8125rem;
+	color: var(--techsome-muted);
+	margin-top: 0.25rem;
+}
+.techsome-pricing-plan__features {
+	list-style: none;
+	margin: 0;
+	padding: 1.25rem 1.5rem;
+	flex: 1;
+}
+.techsome-pricing-plan__features li {
+	position: relative;
+	padding-left: 1.5rem;
+	margin-bottom: 0.75rem;
+	font-size: 0.9375rem;
+	color: var(--techsome-secondary);
+	line-height: 1.5;
+}
+.techsome-pricing-plan__features li:last-child {
+	margin-bottom: 0;
+}
+.techsome-pricing-plan__features li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.4em;
+	width: 0.5rem;
+	height: 0.5rem;
+	background: var(--techsome-primary);
+	border-radius: 50%;
+}
+.techsome-pricing-plan__foot {
+	padding: 1.25rem 1.5rem 1.75rem;
+	text-align: center;
+	border-top: 1px solid var(--techsome-border);
+}
+.techsome-pricing-plan__foot .techsome-btn {
+	width: 100%;
+	justify-content: center;
+	padding: 0.75rem 1.5rem;
+}
+.techsome-pricing-plan--free .techsome-pricing-plan__foot .techsome-btn {
+	background: var(--techsome-bg-subtle);
+	color: var(--techsome-secondary);
+	border: 1px solid var(--techsome-border);
+}
+.techsome-pricing-plan--free .techsome-pricing-plan__foot .techsome-btn:hover {
+	background: var(--techsome-border);
+	color: var(--techsome-secondary);
+}
+
+/* -------------------------------------------------------------------------
+   Service pricing cards
+   ------------------------------------------------------------------------- */
+.techsome-services {
+	margin: 2.5rem 0;
+}
+.techsome-services__title {
+	text-align: center;
+	font-size: clamp(1.5rem, 3vw, 1.875rem);
+	font-weight: 700;
+	color: var(--techsome-secondary);
+	margin: 0 0 0.5rem;
+}
+.techsome-services__subtitle {
+	text-align: center;
+	color: var(--techsome-muted);
+	font-size: 1.0625rem;
+	margin: 0 0 2rem;
+	max-width: 40rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+.techsome-service-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1.5rem;
+	max-width: 72rem;
+	margin: 0 auto;
+}
+.techsome-service-card {
+	background: var(--techsome-bg);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius-lg);
+	box-shadow: var(--techsome-shadow-sm);
+	padding: 1.75rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	transition: box-shadow var(--techsome-transition), border-color var(--techsome-transition);
+}
+.techsome-service-card:hover {
+	box-shadow: var(--techsome-shadow);
+	border-color: var(--techsome-primary);
+}
+.techsome-service-card__icon {
+	width: 3rem;
+	height: 3rem;
+	border-radius: var(--techsome-radius);
+	background: var(--techsome-primary-light);
+	color: var(--techsome-primary);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	line-height: 1;
+}
+.techsome-service-card__title {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--techsome-secondary);
+	margin: 0 0 0.5rem;
+}
+.techsome-service-card__desc {
+	font-size: 0.9375rem;
+	color: var(--techsome-muted);
+	line-height: 1.6;
+	margin: 0 0 1rem;
+	flex: 1;
+}
+.techsome-service-card__price {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--techsome-primary);
+	margin: 0 0 1rem;
+}
+.techsome-service-card__price-note {
+	font-size: 0.8125rem;
+	color: var(--techsome-muted);
+	font-weight: 400;
+	margin-left: 0.25rem;
+}
+.techsome-service-card__cta {
+	margin-top: auto;
+}
+.techsome-service-card__cta .techsome-btn {
+	width: 100%;
+	justify-content: center;
+}
+
+.techsome-services-page .techsome-services-page__intro {
+	margin-bottom: 2rem;
+	max-width: 50rem;
+}
+.techsome-services-page .techsome-service-cards {
+	margin-top: 0;
+}
+
+/* -------------------------------------------------------------------------
    Breadcrumbs & pagination
    ------------------------------------------------------------------------- */
 .techsome-breadcrumbs {
