@@ -21,8 +21,17 @@ get_header();
 			<?php endif; ?>
 			<div class="techsome-product__body techsome-prose"><?php the_content(); ?></div>
 			<?php
-			$cta_text = techsome_mod( 'techsome_header_cta_text', __( 'Get CharityGlow', 'techsome' ) );
-			$cta_url  = techsome_mod( 'techsome_header_cta_url', '#' );
+			$product_type = get_post_meta( get_the_ID(), '_techsome_product_type', true );
+			if ( 'plugin' === $product_type ) {
+				$cta_url  = techsome_get_plugin_checkout_url();
+				$cta_text = __( 'Get the Plugin', 'techsome' );
+			} elseif ( 'theme' === $product_type ) {
+				$cta_url  = techsome_get_theme_checkout_url();
+				$cta_text = __( 'Get the Theme', 'techsome' );
+			} else {
+				$cta_text = techsome_mod( 'techsome_header_cta_text', __( 'Get CharityGlow', 'techsome' ) );
+				$cta_url  = techsome_mod( 'techsome_header_cta_url', '#' );
+			}
 			if ( $cta_text && $cta_url ) :
 				?>
 				<div class="techsome-product__cta">

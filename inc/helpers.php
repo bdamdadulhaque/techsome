@@ -49,6 +49,32 @@ function techsome_get_homepage_layout() {
 }
 
 /**
+ * Get CharityGlow Plugin checkout / pricing URL (Freemius or other).
+ *
+ * @return string
+ */
+function techsome_get_plugin_checkout_url() {
+	$url = techsome_mod( 'techsome_plugin_checkout_url', '' );
+	if ( $url ) {
+		return esc_url( $url );
+	}
+	return techsome_mod( 'techsome_header_cta_url', '#' );
+}
+
+/**
+ * Get CharityGlow Theme checkout / pricing URL (Freemius or other).
+ *
+ * @return string
+ */
+function techsome_get_theme_checkout_url() {
+	$url = techsome_mod( 'techsome_theme_checkout_url', '' );
+	if ( $url ) {
+		return esc_url( $url );
+	}
+	return techsome_mod( 'techsome_header_cta_url', '#' );
+}
+
+/**
  * Get blog archive layout.
  *
  * @return string

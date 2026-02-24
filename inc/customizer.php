@@ -310,6 +310,50 @@ function techsome_customize_register( $wp_customize ) {
 		);
 	}
 
+	// --- Products & Checkout (Freemius) ---
+	$wp_customize->add_section(
+		'techsome_products',
+		array(
+			'title'       => __( 'Products & Checkout (Freemius)', 'techsome' ),
+			'description' => __( 'Set checkout/pricing URLs for CharityGlow Plugin and Theme. Use your Freemius checkout or pricing page URL so customers can order from your site.', 'techsome' ),
+			'priority'    => 22,
+		)
+	);
+	$wp_customize->add_setting(
+		'techsome_plugin_checkout_url',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_url_raw',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		'techsome_plugin_checkout_url',
+		array(
+			'type'        => 'url',
+			'label'       => __( 'CharityGlow Plugin – Checkout / Pricing URL', 'techsome' ),
+			'section'     => 'techsome_products',
+			'description' => __( 'e.g. your Freemius checkout or pricing page for the plugin.', 'techsome' ),
+		)
+	);
+	$wp_customize->add_setting(
+		'techsome_theme_checkout_url',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_url_raw',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		'techsome_theme_checkout_url',
+		array(
+			'type'        => 'url',
+			'label'       => __( 'CharityGlow Theme – Checkout / Pricing URL', 'techsome' ),
+			'section'     => 'techsome_products',
+			'description' => __( 'e.g. your Freemius or sales page for the theme.', 'techsome' ),
+		)
+	);
+
 	// --- Homepage ---
 	$wp_customize->add_section(
 		'techsome_homepage',

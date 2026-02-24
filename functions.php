@@ -19,6 +19,8 @@ require_once TECHSOME_DIR . 'inc/enqueue.php';
 require_once TECHSOME_DIR . 'inc/customizer.php';
 require_once TECHSOME_DIR . 'inc/template-parts.php';
 require_once TECHSOME_DIR . 'inc/block-patterns.php';
+require_once TECHSOME_DIR . 'inc/product-meta.php';
+require_once TECHSOME_DIR . 'inc/shortcodes.php';
 
 /**
  * Add body class when sidebar is active.
