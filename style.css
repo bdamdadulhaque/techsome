@@ -1,0 +1,19 @@
+/*
+Theme Name: Techsome
+Theme URI: https://charityglow.com
+Author: CharityGlow
+Author URI: https://charityglow.com
+Description: A WordPress theme for product and service companies. Built for charityglow.com to showcase and sell CharityGlow plugin and CharityGlow Theme.
+Version: 1.0.0
+Requires at least: 5.8
+Tested up to: 6.9
+Requires PHP: 7.4
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: techsome
+Tags: custom-logo, custom-menu, featured-images, sticky-post, rtl-language-support, translation-ready, blog, e-commerce, full-site-editing, wide-blocks, block-patterns
+
+Techsome is a product and service company theme for WordPress.
+*/
+
+/* Keep this file lightweight. Main CSS is enqueued from /assets/css/theme.css */
