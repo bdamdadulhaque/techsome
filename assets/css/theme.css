@@ -21,6 +21,10 @@
 	box-sizing: border-box;
 }
 
+html {
+	overflow-x: hidden;
+}
+
 body {
 	margin: 0;
 	font-family: var(--techsome-font-body);
@@ -28,6 +32,8 @@ body {
 	line-height: 1.6;
 	color: var(--techsome-secondary);
 	background: #fff;
+	overflow-x: hidden;
+	overflow-wrap: break-word;
 }
 
 /* Skip link */
@@ -97,6 +103,7 @@ body {
 	justify-content: space-between;
 	gap: 1rem;
 	flex-wrap: wrap;
+	min-width: 0;
 }
 .techsome-header__brand {
 	flex-shrink: 0;
@@ -152,6 +159,7 @@ body {
 
 .techsome-nav {
 	display: none;
+	min-width: 0;
 }
 .techsome-menu {
 	list-style: none;
@@ -160,6 +168,7 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem 1.5rem;
+	min-width: 0;
 }
 .techsome-menu > li {
 	position: relative;
@@ -251,6 +260,7 @@ body {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
+	min-width: 0;
 }
 .techsome-header__actions {
 	flex-shrink: 0;
