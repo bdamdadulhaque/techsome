@@ -8,11 +8,23 @@
    ------------------------------------------------------------------------- */
 :root {
 	--techsome-primary: #2563eb;
+	--techsome-primary-hover: #1d4ed8;
+	--techsome-primary-light: #eff6ff;
 	--techsome-secondary: #0f172a;
+	--techsome-muted: #64748b;
+	--techsome-border: #e2e8f0;
+	--techsome-bg: #ffffff;
+	--techsome-bg-subtle: #f8fafc;
 	--techsome-container: 1200px;
 	--techsome-radius: 8px;
-	--techsome-font-body: system-ui, -apple-system, sans-serif;
+	--techsome-radius-lg: 12px;
+	--techsome-font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 	--techsome-font-heading: var(--techsome-font-body);
+	--techsome-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--techsome-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+	--techsome-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.06);
+	--techsome-input-height: 2.75rem;
+	--techsome-transition: 0.2s ease;
 }
 
 *,
@@ -88,9 +100,10 @@ body {
    Header
    ------------------------------------------------------------------------- */
 .techsome-header {
-	background: #fff;
-	border-bottom: 1px solid #e5e7eb;
-	padding: 0.75rem 0;
+	background: var(--techsome-bg);
+	border-bottom: 1px solid var(--techsome-border);
+	padding: 0.875rem 0;
+	box-shadow: var(--techsome-shadow-sm);
 }
 .techsome-header--sticky {
 	position: sticky;
@@ -141,7 +154,7 @@ body {
 	gap: 0.5rem;
 	padding: 0.5rem 0.75rem;
 	background: transparent;
-	border: 1px solid #e5e7eb;
+	border: 1px solid var(--techsome-border);
 	border-radius: var(--techsome-radius);
 	font-size: 1rem;
 	cursor: pointer;
@@ -190,7 +203,7 @@ body {
 	padding: 0;
 	min-width: 220px;
 	background: #fff;
-	border: 1px solid #e5e7eb;
+	border: 1px solid var(--techsome-border);
 	border-radius: var(--techsome-radius);
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
@@ -206,13 +219,13 @@ body {
 	padding: 0.5rem 1rem;
 	white-space: nowrap;
 	font-size: 0.9375rem;
-	border-bottom: 1px solid #f1f5f9;
+	border-bottom: 1px solid var(--techsome-border);
 }
 .techsome-menu .sub-menu li:last-child > a {
 	border-bottom: none;
 }
 .techsome-menu .sub-menu a:hover {
-	background: #f8fafc;
+	background: var(--techsome-bg-subtle);
 	color: var(--techsome-primary);
 }
 
@@ -326,7 +339,7 @@ body {
 		background: transparent;
 		margin-top: 0.25rem;
 		margin-bottom: 0.5rem;
-		border-left: 2px solid #e5e7eb;
+		border-left: 2px solid var(--techsome-border);
 	}
 	.techsome-menu .menu-item-has-children.is-expanded > .sub-menu {
 		display: block;
@@ -360,7 +373,7 @@ body {
 	}
 	.techsome-submenu-toggle:hover,
 	.techsome-submenu-toggle:focus {
-		background: #f1f5f9;
+		background: var(--techsome-bg-subtle);
 		color: var(--techsome-primary);
 		outline: none;
 	}
@@ -398,34 +411,305 @@ body {
    Buttons
    ------------------------------------------------------------------------- */
 .techsome-btn {
-	display: inline-block;
-	padding: 0.5rem 1.25rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.625rem 1.5rem;
 	border-radius: var(--techsome-radius);
 	font-size: 1rem;
 	font-weight: 600;
 	text-decoration: none;
 	cursor: pointer;
 	border: none;
+	transition: background-color var(--techsome-transition), color var(--techsome-transition), box-shadow var(--techsome-transition);
+}
+.techsome-btn:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px var(--techsome-primary-light);
 }
 .techsome-btn--primary {
 	background: var(--techsome-primary);
 	color: #fff;
+	box-shadow: var(--techsome-shadow-sm);
 }
 .techsome-btn--primary:hover {
-	opacity: 0.9;
+	background: var(--techsome-primary-hover);
+	color: #fff;
+	box-shadow: var(--techsome-shadow);
 }
 .techsome-btn--lg {
-	padding: 0.75rem 1.5rem;
-	font-size: 1.125rem;
+	padding: 0.75rem 1.75rem;
+	font-size: 1.0625rem;
+}
+
+/* -------------------------------------------------------------------------
+   Global form elements (inputs, labels)
+   ------------------------------------------------------------------------- */
+.techsome-form-label {
+	display: block;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--techsome-secondary);
+	margin-bottom: 0.375rem;
+}
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="password"],
+textarea,
+select {
+	width: 100%;
+	max-width: 100%;
+	padding: 0.625rem 1rem;
+	font-size: 1rem;
+	font-family: inherit;
+	line-height: 1.5;
+	color: var(--techsome-secondary);
+	background: var(--techsome-bg);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius);
+	transition: border-color var(--techsome-transition), box-shadow var(--techsome-transition);
+}
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+	border-color: var(--techsome-primary);
+	box-shadow: 0 0 0 3px var(--techsome-primary-light);
+}
+input::placeholder,
+textarea::placeholder {
+	color: var(--techsome-muted);
+}
+textarea {
+	min-height: 120px;
+	resize: vertical;
+}
+
+/* -------------------------------------------------------------------------
+   Contact Form 7 – professional styling (GiveWP / WPCharitable style)
+   ------------------------------------------------------------------------- */
+.techsome-contact-page .wpcf7,
+.wpcf7.wpcf7-form {
+	max-width: 36rem;
+	margin-top: 2rem;
+}
+
+/* CF7 form card (wrapper is .wpcf7) */
+.techsome-contact-page .wpcf7 {
+	background: var(--techsome-bg);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius-lg);
+	box-shadow: var(--techsome-shadow-lg);
+	padding: 2rem;
+}
+
+.techsome-cf7-wrap {
+	background: var(--techsome-bg);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius-lg);
+	box-shadow: var(--techsome-shadow-lg);
+	padding: 2rem;
+}
+.techsome-contact-page .wpcf7-form-control-wrap {
+	display: block;
+	margin-bottom: 0;
+}
+.techsome-contact-page .wpcf7 p {
+	margin: 0 0 1.25rem;
+}
+.techsome-contact-page .wpcf7 p:last-of-type {
+	margin-bottom: 0;
+}
+.techsome-contact-page .wpcf7 label {
+	display: block;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--techsome-secondary);
+	margin-bottom: 0.375rem;
+}
+.techsome-contact-page .wpcf7 input[type="text"],
+.techsome-contact-page .wpcf7 input[type="email"],
+.techsome-contact-page .wpcf7 input[type="url"],
+.techsome-contact-page .wpcf7 input[type="tel"],
+.techsome-contact-page .wpcf7 textarea {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	font-size: 1rem;
+	font-family: inherit;
+	line-height: 1.5;
+	color: var(--techsome-secondary);
+	background: var(--techsome-bg);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius);
+	transition: border-color var(--techsome-transition), box-shadow var(--techsome-transition);
+}
+.techsome-contact-page .wpcf7 input:focus,
+.techsome-contact-page .wpcf7 textarea:focus {
+	outline: none;
+	border-color: var(--techsome-primary);
+	box-shadow: 0 0 0 3px var(--techsome-primary-light);
+}
+.techsome-contact-page .wpcf7 textarea {
+	min-height: 140px;
+	resize: vertical;
+}
+.techsome-contact-page .wpcf7 input[type="submit"],
+.techsome-contact-page .wpcf7 input[type="button"] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	max-width: 16rem;
+	margin-top: 0.5rem;
+	padding: 0.75rem 1.75rem;
+	font-size: 1rem;
+	font-weight: 600;
+	font-family: inherit;
+	color: #fff;
+	background: var(--techsome-primary);
+	border: none;
+	border-radius: var(--techsome-radius);
+	box-shadow: var(--techsome-shadow-sm);
+	cursor: pointer;
+	transition: background-color var(--techsome-transition), box-shadow var(--techsome-transition);
+}
+.techsome-contact-page .wpcf7 input[type="submit"]:hover,
+.techsome-contact-page .wpcf7 input[type="button"]:hover {
+	background: var(--techsome-primary-hover);
+	box-shadow: var(--techsome-shadow);
+}
+.techsome-contact-page .wpcf7 input[type="submit"]:focus,
+.techsome-contact-page .wpcf7 input[type="button"]:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px var(--techsome-primary-light);
+}
+.techsome-contact-page .wpcf7 .wpcf7-list-item {
+	margin-left: 0;
+	margin-right: 1rem;
+}
+.techsome-contact-page .wpcf7 input[type="checkbox"],
+.techsome-contact-page .wpcf7 input[type="radio"] {
+	width: 1.125rem;
+	height: 1.125rem;
+	accent-color: var(--techsome-primary);
+	margin-right: 0.5rem;
+	vertical-align: middle;
+}
+.techsome-contact-page .wpcf7 .wpcf7-response-output {
+	margin: 1.25rem 0 0;
+	padding: 1rem 1.25rem;
+	border-radius: var(--techsome-radius);
+	font-size: 0.9375rem;
+	border-width: 1px;
+	border-style: solid;
+}
+.techsome-contact-page .wpcf7 .wpcf7-mail-sent-ok {
+	background: #f0fdf4;
+	border-color: #86efac;
+	color: #166534;
+}
+.techsome-contact-page .wpcf7 .wpcf7-validation-errors,
+.techsome-contact-page .wpcf7 .wpcf7-mail-sent-ng {
+	background: #fef2f2;
+	border-color: #fecaca;
+	color: #b91c1c;
+}
+.techsome-contact-page .wpcf7 .wpcf7-spam-blocked {
+	background: #fffbeb;
+	border-color: #fde68a;
+	color: #92400e;
+}
+.techsome-contact-page .wpcf7 .wpcf7-not-valid-tip {
+	font-size: 0.8125rem;
+	color: #b91c1c;
+	margin-top: 0.25rem;
+}
+.techsome-contact-page .wpcf7 .wpcf7-not-valid {
+	border-color: #f87171;
+	background: #fef2f2;
+}
+.techsome-contact-page .wpcf7 .wpcf7-form-control.wpcf7-not-valid:focus {
+	box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.25);
+}
+.techsome-contact-page .wpcf7 .ajax-loader {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 0.5rem;
+}
+.techsome-contact-page .wpcf7-form {
+	padding: 0;
+}
+
+/* CF7 when inside techsome-cf7-wrap (any page) */
+.techsome-cf7-wrap .wpcf7 p {
+	margin: 0 0 1.25rem;
+}
+.techsome-cf7-wrap .wpcf7 label {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--techsome-secondary);
+	margin-bottom: 0.375rem;
+}
+.techsome-cf7-wrap .wpcf7 input[type="text"],
+.techsome-cf7-wrap .wpcf7 input[type="email"],
+.techsome-cf7-wrap .wpcf7 input[type="url"],
+.techsome-cf7-wrap .wpcf7 input[type="tel"],
+.techsome-cf7-wrap .wpcf7 textarea {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius);
+	transition: border-color var(--techsome-transition), box-shadow var(--techsome-transition);
+}
+.techsome-cf7-wrap .wpcf7 input:focus,
+.techsome-cf7-wrap .wpcf7 textarea:focus {
+	outline: none;
+	border-color: var(--techsome-primary);
+	box-shadow: 0 0 0 3px var(--techsome-primary-light);
+}
+.techsome-cf7-wrap .wpcf7 input[type="submit"] {
+	background: var(--techsome-primary);
+	color: #fff;
+	font-weight: 600;
+	padding: 0.75rem 1.75rem;
+	border: none;
+	border-radius: var(--techsome-radius);
+	cursor: pointer;
+	transition: background-color var(--techsome-transition);
+}
+.techsome-cf7-wrap .wpcf7 input[type="submit"]:hover {
+	background: var(--techsome-primary-hover);
+}
+.techsome-cf7-wrap .wpcf7 .wpcf7-response-output {
+	margin-top: 1rem;
+	padding: 1rem;
+	border-radius: var(--techsome-radius);
+	font-size: 0.9375rem;
+}
+.techsome-cf7-wrap .wpcf7 .wpcf7-mail-sent-ok {
+	background: #f0fdf4;
+	border: 1px solid #86efac;
+	color: #166534;
+}
+.techsome-cf7-wrap .wpcf7 .wpcf7-validation-errors,
+.techsome-cf7-wrap .wpcf7 .wpcf7-mail-sent-ng {
+	background: #fef2f2;
+	border: 1px solid #fecaca;
+	color: #b91c1c;
 }
 
 /* -------------------------------------------------------------------------
    Footer
    ------------------------------------------------------------------------- */
 .techsome-footer {
-	background: #f8fafc;
-	border-top: 1px solid #e5e7eb;
-	padding: 2rem 0 1.5rem;
+	background: var(--techsome-bg-subtle);
+	border-top: 1px solid var(--techsome-border);
+	padding: 2.5rem 0 1.5rem;
 	margin-top: auto;
 }
 .techsome-footer--minimal .techsome-footer__inner {
@@ -508,27 +792,72 @@ body {
    ------------------------------------------------------------------------- */
 .techsome-prose {
 	max-width: 65ch;
+	color: var(--techsome-secondary);
 }
 .techsome-prose h1,
 .techsome-prose h2,
 .techsome-prose h3 {
 	font-family: var(--techsome-font-heading);
 	line-height: 1.25;
+	color: var(--techsome-secondary);
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+.techsome-prose h1:first-child,
+.techsome-prose h2:first-child,
+.techsome-prose h3:first-child {
+	margin-top: 0;
+}
+.techsome-prose p {
+	margin-bottom: 1em;
+	color: var(--techsome-muted);
+}
+.techsome-prose a {
+	color: var(--techsome-primary);
+	text-decoration: none;
+}
+.techsome-prose a:hover {
+	text-decoration: underline;
 }
 .techsome-page__title,
 .techsome-page-title {
-	margin: 0 0 0.5em;
-	font-size: clamp(1.5rem, 4vw, 2rem);
+	margin: 0 0 0.375em;
+	font-size: clamp(1.75rem, 4vw, 2.25rem);
+	font-weight: 700;
+	color: var(--techsome-secondary);
+	letter-spacing: -0.02em;
+}
+.techsome-page__header {
+	margin-bottom: 1.5rem;
+}
+.techsome-contact-page .techsome-page__title {
+	margin-bottom: 0.5rem;
+}
+.techsome-contact-page .techsome-contact__body {
+	margin-bottom: 0;
+	max-width: 42rem;
+	color: var(--techsome-muted);
+}
+.techsome-page__excerpt {
+	font-size: 1.125rem;
+	color: var(--techsome-muted);
+	margin: 0;
+	line-height: 1.6;
 }
 
 /* -------------------------------------------------------------------------
    Cards & posts
    ------------------------------------------------------------------------- */
 .techsome-card {
-	border: 1px solid #e5e7eb;
-	border-radius: var(--techsome-radius);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius-lg);
 	overflow: hidden;
-	background: #fff;
+	background: var(--techsome-bg);
+	box-shadow: var(--techsome-shadow-sm);
+	transition: box-shadow var(--techsome-transition);
+}
+.techsome-card:hover {
+	box-shadow: var(--techsome-shadow);
 }
 .techsome-card__thumb {
 	display: block;
@@ -653,17 +982,24 @@ body {
    ------------------------------------------------------------------------- */
 .techsome-hero {
 	text-align: center;
-	padding: 3rem 0;
-	background: linear-gradient(180deg, #f0f9ff 0%, #fff 100%);
+	padding: 3.5rem 0;
+	background: linear-gradient(180deg, var(--techsome-primary-light) 0%, var(--techsome-bg) 100%);
+	border-bottom: 1px solid var(--techsome-border);
 }
 .techsome-hero__title {
 	margin: 0 0 0.5rem;
 	font-size: clamp(1.75rem, 5vw, 2.5rem);
+	font-weight: 700;
+	color: var(--techsome-secondary);
+	letter-spacing: -0.02em;
 }
 .techsome-hero__tagline {
 	margin: 0 0 1.5rem;
 	font-size: 1.125rem;
-	color: #64748b;
+	color: var(--techsome-muted);
+	max-width: 36rem;
+	margin-left: auto;
+	margin-right: auto;
 }
 .techsome-hero__actions {
 	margin-top: 1rem;
@@ -686,7 +1022,7 @@ body {
 }
 .techsome-product-card {
 	padding: 1.5rem;
-	border: 1px solid #e5e7eb;
+	border: 1px solid var(--techsome-border);
 	border-radius: var(--techsome-radius);
 	background: #fff;
 }
