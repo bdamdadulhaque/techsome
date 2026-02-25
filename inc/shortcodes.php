@@ -52,29 +52,37 @@ function techsome_shortcode_theme_checkout_button( $atts ) {
 }
 
 /**
- * [techsome_pricing_table] – Free vs Pro pricing table (before checkout).
- * Attributes: title, subtitle, free_title, free_price, free_price_note, pro_title, pro_price, pro_price_note, pro_button, pro_url (default: plugin checkout), free_features (comma-separated), pro_features (comma-separated), featured (free|pro).
+ * [techsome_pricing_table] – Free, Pro, Pro Plus pricing table (before checkout).
+ * Attributes: title, subtitle, free_title, free_price, pro_title, pro_price, pro_plus_title, pro_plus_price, pro_button, pro_url, pro_plus_button, pro_plus_url, free_features, pro_features, pro_plus_features, featured (free|pro|pro_plus).
  */
 add_shortcode( 'techsome_pricing_table', 'techsome_shortcode_pricing_table' );
 function techsome_shortcode_pricing_table( $atts ) {
+	$plugin_url = techsome_get_plugin_checkout_url();
 	$atts = shortcode_atts( array(
-		'title'          => __( 'Choose Your Plan', 'techsome' ),
-		'subtitle'       => __( 'Start free or unlock all features with Pro.', 'techsome' ),
-		'free_title'     => __( 'Free', 'techsome' ),
-		'free_price'     => __( '$0', 'techsome' ),
-		'free_price_note' => __( 'forever', 'techsome' ),
-		'pro_title'      => __( 'Pro', 'techsome' ),
-		'pro_price'      => __( 'From $99/year', 'techsome' ),
-		'pro_price_note' => '',
-		'pro_button'     => __( 'Get Pro', 'techsome' ),
-		'pro_url'        => techsome_get_plugin_checkout_url(),
-		'free_features'  => __( 'Core donation forms,Basic campaigns,Email support,1 site', 'techsome' ),
-		'pro_features'   => __( 'Everything in Free,Unlimited campaigns,Priority support,Unlimited sites,Advanced reporting', 'techsome' ),
-		'featured'       => 'pro',
+		'title'            => __( 'Choose Your Plan', 'techsome' ),
+		'subtitle'         => __( 'Start free or unlock more with Pro and Pro Plus.', 'techsome' ),
+		'free_title'       => __( 'Free', 'techsome' ),
+		'free_price'       => __( '$0', 'techsome' ),
+		'free_price_note'  => __( 'forever', 'techsome' ),
+		'pro_title'        => __( 'Pro', 'techsome' ),
+		'pro_price'        => __( 'From $99/year', 'techsome' ),
+		'pro_price_note'   => '',
+		'pro_button'       => __( 'Get Pro', 'techsome' ),
+		'pro_url'          => $plugin_url,
+		'pro_plus_title'   => __( 'Pro Plus', 'techsome' ),
+		'pro_plus_price'   => __( 'From $199/year', 'techsome' ),
+		'pro_plus_price_note' => '',
+		'pro_plus_button'  => __( 'Get Pro Plus', 'techsome' ),
+		'pro_plus_url'     => $plugin_url,
+		'free_features'    => __( 'Core donation forms,Basic campaigns,Email support,1 site', 'techsome' ),
+		'pro_features'     => __( 'Everything in Free,Unlimited campaigns,Priority support,Unlimited sites,Advanced reporting', 'techsome' ),
+		'pro_plus_features'=> __( 'Everything in Pro,Dedicated support,Custom integrations,White-label option', 'techsome' ),
+		'featured'         => 'pro',
 	), $atts, 'techsome_pricing_table' );
 
-	$free_features = array_filter( array_map( 'trim', explode( ',', $atts['free_features'] ) ) );
-	$pro_features = array_filter( array_map( 'trim', explode( ',', $atts['pro_features'] ) ) );
+	$free_features   = array_filter( array_map( 'trim', explode( ',', $atts['free_features'] ) ) );
+	$pro_features    = array_filter( array_map( 'trim', explode( ',', $atts['pro_features'] ) ) );
+	$pro_plus_features = array_filter( array_map( 'trim', explode( ',', $atts['pro_plus_features'] ) ) );
 
 	ob_start();
 	?>
@@ -90,7 +98,7 @@ function techsome_shortcode_pricing_table( $atts ) {
 				<div class="techsome-pricing-plan__head">
 					<h3 class="techsome-pricing-plan__name"><?php echo esc_html( $atts['free_title'] ); ?></h3>
 					<p class="techsome-pricing-plan__price"><?php echo esc_html( $atts['free_price'] ); ?></p>
-					<?php if ( $atts['free_price_note'] ) : ?>
+					<?php if ( ! empty( $atts['free_price_note'] ) ) : ?>
 						<p class="techsome-pricing-plan__price-note"><?php echo esc_html( $atts['free_price_note'] ); ?></p>
 					<?php endif; ?>
 				</div>
@@ -118,6 +126,23 @@ function techsome_shortcode_pricing_table( $atts ) {
 				</ul>
 				<div class="techsome-pricing-plan__foot">
 					<a class="techsome-btn techsome-btn--primary" href="<?php echo esc_url( $atts['pro_url'] ); ?>"><?php echo esc_html( $atts['pro_button'] ); ?></a>
+				</div>
+			</div>
+			<div class="techsome-pricing-plan techsome-pricing-plan--pro-plus<?php echo 'pro_plus' === $atts['featured'] ? ' techsome-pricing-plan--featured' : ''; ?>"<?php echo 'pro_plus' === $atts['featured'] ? ' data-badge="' . esc_attr__( 'Popular', 'techsome' ) . '"' : ''; ?>>
+				<div class="techsome-pricing-plan__head">
+					<h3 class="techsome-pricing-plan__name"><?php echo esc_html( $atts['pro_plus_title'] ); ?></h3>
+					<p class="techsome-pricing-plan__price"><?php echo esc_html( $atts['pro_plus_price'] ); ?></p>
+					<?php if ( $atts['pro_plus_price_note'] ) : ?>
+						<p class="techsome-pricing-plan__price-note"><?php echo esc_html( $atts['pro_plus_price_note'] ); ?></p>
+					<?php endif; ?>
+				</div>
+				<ul class="techsome-pricing-plan__features">
+					<?php foreach ( $pro_plus_features as $f ) : ?>
+						<li><?php echo esc_html( $f ); ?></li>
+					<?php endforeach; ?>
+				</ul>
+				<div class="techsome-pricing-plan__foot">
+					<a class="techsome-btn techsome-btn--primary" href="<?php echo esc_url( $atts['pro_plus_url'] ); ?>"><?php echo esc_html( $atts['pro_plus_button'] ); ?></a>
 				</div>
 			</div>
 		</div>

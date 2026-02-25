@@ -429,18 +429,39 @@ body {
 	box-shadow: 0 0 0 3px var(--techsome-primary-light);
 }
 .techsome-btn--primary {
-	background: var(--techsome-primary);
-	color: #fff;
+	background: var(--techsome-primary) !important;
+	color: #ffffff !important;
 	box-shadow: var(--techsome-shadow-sm);
 }
 .techsome-btn--primary:hover {
-	background: var(--techsome-primary-hover);
-	color: #fff;
+	background: var(--techsome-primary-hover) !important;
+	color: #ffffff !important;
 	box-shadow: var(--techsome-shadow);
 }
 .techsome-btn--lg {
 	padding: 0.75rem 1.75rem;
 	font-size: 1.0625rem;
+}
+
+/* Block pattern / editor buttons – ensure visible text and primary background */
+.techsome-pattern-hero .wp-block-button__link,
+.techsome-pattern-pricing .wp-block-button__link,
+.techsome-pattern-contact-cta .wp-block-button__link {
+	background: var(--techsome-primary) !important;
+	color: #ffffff !important;
+	border: none;
+	padding: 0.625rem 1.5rem;
+	border-radius: var(--techsome-radius);
+	font-weight: 600;
+	text-decoration: none;
+	box-shadow: var(--techsome-shadow-sm);
+}
+.techsome-pattern-hero .wp-block-button__link:hover,
+.techsome-pattern-pricing .wp-block-button__link:hover,
+.techsome-pattern-contact-cta .wp-block-button__link:hover {
+	background: var(--techsome-primary-hover) !important;
+	color: #ffffff !important;
+	box-shadow: var(--techsome-shadow);
 }
 
 /* -------------------------------------------------------------------------
@@ -794,6 +815,16 @@ textarea {
 	max-width: 65ch;
 	color: var(--techsome-secondary);
 }
+
+/* Product/page body: full width so pricing and services can span; keep text at 65ch */
+.techsome-product__body.techsome-prose,
+.techsome-page__body.techsome-prose {
+	max-width: 100%;
+}
+.techsome-product__body.techsome-prose > *:not(.techsome-pricing):not(.techsome-services),
+.techsome-page__body.techsome-prose > *:not(.techsome-pricing):not(.techsome-services) {
+	max-width: 65ch;
+}
 .techsome-prose h1,
 .techsome-prose h2,
 .techsome-prose h3 {
@@ -1053,7 +1084,18 @@ textarea {
    ------------------------------------------------------------------------- */
 .techsome-pricing {
 	margin: 2.5rem 0;
+	width: 100%;
 }
+
+/* Let pricing table use full content width on product/page while prose stays narrow */
+.techsome-product__body.techsome-prose .techsome-pricing,
+.techsome-page__body.techsome-prose .techsome-pricing,
+.techsome-content .techsome-prose > .techsome-pricing {
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
 .techsome-pricing__title {
 	text-align: center;
 	font-size: clamp(1.5rem, 3vw, 1.875rem);
@@ -1072,12 +1114,13 @@ textarea {
 }
 .techsome-pricing-table {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 1.5rem;
-	max-width: 56rem;
+	width: 100%;
+	max-width: 100%;
 	margin: 0 auto;
 }
-@media (max-width: 639px) {
+@media (max-width: 899px) {
 	.techsome-pricing-table {
 		grid-template-columns: 1fr;
 	}
@@ -1178,15 +1221,31 @@ textarea {
 	width: 100%;
 	justify-content: center;
 	padding: 0.75rem 1.5rem;
+	color: #ffffff !important;
+	background: var(--techsome-primary) !important;
+	border: none;
+}
+.techsome-pricing-plan__foot .techsome-btn:hover {
+	color: #ffffff !important;
+	background: var(--techsome-primary-hover) !important;
 }
 .techsome-pricing-plan--free .techsome-pricing-plan__foot .techsome-btn {
-	background: var(--techsome-bg-subtle);
-	color: var(--techsome-secondary);
+	background: var(--techsome-bg-subtle) !important;
+	color: var(--techsome-secondary) !important;
 	border: 1px solid var(--techsome-border);
 }
 .techsome-pricing-plan--free .techsome-pricing-plan__foot .techsome-btn:hover {
-	background: var(--techsome-border);
-	color: var(--techsome-secondary);
+	background: var(--techsome-border) !important;
+	color: var(--techsome-secondary) !important;
+}
+.techsome-service-card__cta .techsome-btn {
+	color: #ffffff !important;
+	background: var(--techsome-primary) !important;
+	border: none;
+}
+.techsome-service-card__cta .techsome-btn:hover {
+	color: #ffffff !important;
+	background: var(--techsome-primary-hover) !important;
 }
 
 /* -------------------------------------------------------------------------
@@ -1195,6 +1254,19 @@ textarea {
 .techsome-services {
 	margin: 2.5rem 0;
 }
+
+/* Break services section out of narrow prose column so it uses full page width */
+.techsome-prose .techsome-services,
+.techsome-content .techsome-services {
+	width: 100vw;
+	max-width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	box-sizing: border-box;
+}
+
 .techsome-services__title {
 	text-align: center;
 	font-size: clamp(1.5rem, 3vw, 1.875rem);

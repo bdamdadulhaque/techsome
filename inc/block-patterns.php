@@ -135,12 +135,12 @@ function techsome_register_block_patterns() {
 			'categories'  => array( 'techsome' ),
 		),
 		'pricing-free-pro' => array(
-			'title'       => __( 'Pricing Table – Free & Pro', 'techsome' ),
-			'description' => __( 'Two-column pricing table (Free vs Pro) with features and CTA. Edit the button link to your Freemius checkout.', 'techsome' ),
+			'title'       => __( 'Pricing Table – Free, Pro & Pro Plus', 'techsome' ),
+			'description' => __( 'Three-column pricing table with features and CTA. Edit button links to your Freemius checkout.', 'techsome' ),
 			'content'     => '<!-- wp:html -->
 			<div class="techsome-pricing">
 				<h2 class="techsome-pricing__title">' . esc_html__( 'Choose Your Plan', 'techsome' ) . '</h2>
-				<p class="techsome-pricing__subtitle">' . esc_html__( 'Start free or unlock all features with Pro.', 'techsome' ) . '</p>
+				<p class="techsome-pricing__subtitle">' . esc_html__( 'Start free or unlock more with Pro and Pro Plus.', 'techsome' ) . '</p>
 				<div class="techsome-pricing-table">
 					<div class="techsome-pricing-plan techsome-pricing-plan--free">
 						<div class="techsome-pricing-plan__head">
@@ -172,6 +172,21 @@ function techsome_register_block_patterns() {
 						</ul>
 						<div class="techsome-pricing-plan__foot">
 							<a class="techsome-btn techsome-btn--primary" href="#">' . esc_html__( 'Get Pro', 'techsome' ) . '</a>
+						</div>
+					</div>
+					<div class="techsome-pricing-plan techsome-pricing-plan--pro-plus">
+						<div class="techsome-pricing-plan__head">
+							<h3 class="techsome-pricing-plan__name">' . esc_html__( 'Pro Plus', 'techsome' ) . '</h3>
+							<p class="techsome-pricing-plan__price">' . esc_html__( 'From $199/year', 'techsome' ) . '</p>
+						</div>
+						<ul class="techsome-pricing-plan__features">
+							<li>' . esc_html__( 'Everything in Pro', 'techsome' ) . '</li>
+							<li>' . esc_html__( 'Dedicated support', 'techsome' ) . '</li>
+							<li>' . esc_html__( 'Custom integrations', 'techsome' ) . '</li>
+							<li>' . esc_html__( 'White-label option', 'techsome' ) . '</li>
+						</ul>
+						<div class="techsome-pricing-plan__foot">
+							<a class="techsome-btn techsome-btn--primary" href="#">' . esc_html__( 'Get Pro Plus', 'techsome' ) . '</a>
 						</div>
 					</div>
 				</div>
