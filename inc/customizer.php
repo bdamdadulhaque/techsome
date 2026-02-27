@@ -337,6 +337,23 @@ function techsome_customize_register( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_setting(
+		'techsome_plugin_wp_org_url',
+		array(
+			'default'           => 'https://wordpress.org/plugins/charityglow/',
+			'sanitize_callback' => 'esc_url_raw',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		'techsome_plugin_wp_org_url',
+		array(
+			'type'        => 'url',
+			'label'       => __( 'CharityGlow Plugin – WordPress.org URL', 'techsome' ),
+			'section'     => 'techsome_products',
+			'description' => __( 'Used for "Download for Free on WordPress.org" on the homepage.', 'techsome' ),
+		)
+	);
+	$wp_customize->add_setting(
 		'techsome_theme_checkout_url',
 		array(
 			'default'           => '',
@@ -382,7 +399,7 @@ function techsome_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'techsome_homepage_layout',
 		array(
-			'default'           => 'classic',
+			'default'           => 'charityglow',
 			'sanitize_callback' => 'sanitize_text_field',
 			'transport'         => 'refresh',
 		)
@@ -395,9 +412,10 @@ function techsome_customize_register( $wp_customize ) {
 			'section'     => 'techsome_homepage',
 			'description' => __( 'Choose a front page style. Use a static page as homepage in Settings → Reading.', 'techsome' ),
 			'choices'     => array(
-				'classic' => __( 'Classic (Hero + Features)', 'techsome' ),
-				'product' => __( 'Product-focused (Plugin & Theme)', 'techsome' ),
-				'split'   => __( 'Split (Plugin | Theme)', 'techsome' ),
+				'charityglow' => __( 'CharityGlow Plugin (recommended)', 'techsome' ),
+				'classic'     => __( 'Classic (Hero + Features)', 'techsome' ),
+				'product'     => __( 'Product-focused (Plugin & Theme)', 'techsome' ),
+				'split'       => __( 'Split (Plugin | Theme)', 'techsome' ),
 			),
 		)
 	);

@@ -45,7 +45,7 @@ function techsome_get_footer_layout() {
  * @return string
  */
 function techsome_get_homepage_layout() {
-	return techsome_mod( 'techsome_homepage_layout', 'classic' );
+	return techsome_mod( 'techsome_homepage_layout', 'charityglow' );
 }
 
 /**
@@ -59,6 +59,16 @@ function techsome_get_plugin_checkout_url() {
 		return esc_url( $url );
 	}
 	return techsome_mod( 'techsome_header_cta_url', '#' );
+}
+
+/**
+ * Get CharityGlow Plugin WordPress.org URL (for "Download for Free" CTA).
+ *
+ * @return string
+ */
+function techsome_get_plugin_wp_org_url() {
+	$url = techsome_mod( 'techsome_plugin_wp_org_url', 'https://wordpress.org/plugins/charityglow/' );
+	return esc_url( $url );
 }
 
 /**
