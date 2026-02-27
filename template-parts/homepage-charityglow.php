@@ -237,7 +237,8 @@ $free_setup_url = techsome_mod( 'techsome_free_setup_page_url', home_url( '/cont
 							<a class="techsome-btn techsome-btn--primary" href="<?php echo esc_url( $wp_org_url ); ?>"><?php esc_html_e( 'Download Free', 'techsome' ); ?></a>
 						</div>
 					</div>
-					<div class="techsome-pricing-plan techsome-pricing-plan--pro techsome-pricing-plan--featured" data-badge="<?php esc_attr_e( 'Popular', 'techsome' ); ?>">
+					<div class="techsome-pricing-plan techsome-pricing-plan--pro techsome-pricing-plan--featured">
+						<span class="cg-pricing__badge"><?php esc_html_e( 'Popular', 'techsome' ); ?></span>
 						<div class="techsome-pricing-plan__head">
 							<h3 class="techsome-pricing-plan__name"><?php esc_html_e( 'Pro', 'techsome' ); ?></h3>
 							<p class="techsome-pricing-plan__price"><?php esc_html_e( '$99', 'techsome' ); ?></p>

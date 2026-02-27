@@ -1665,10 +1665,29 @@ textarea {
 		transform: translateY(-2px);
 	}
 }
+/* Hide theme's ::before badge; we use .cg-pricing__badge instead */
 .cg-pricing__table .techsome-pricing-plan--featured::before {
-	padding: 0.5rem 1rem;
-	font-size: 0.75rem;
-	letter-spacing: 0.06em;
+	display: none;
+}
+/* Popular badge: pill above the card */
+.cg-pricing__badge {
+	position: absolute;
+	top: -0.75rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2;
+	display: inline-block;
+	padding: 0.35rem 1rem;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	text-align: center;
+	color: #fff;
+	background: var(--techsome-primary);
+	border-radius: 9999px;
+	box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+	white-space: nowrap;
 }
 .cg-pricing__table .techsome-pricing-plan__head {
 	padding: 2rem 1.5rem 1.5rem;
@@ -1677,6 +1696,8 @@ textarea {
 .cg-pricing__table .techsome-pricing-plan--featured .techsome-pricing-plan__head {
 	padding-top: 2.75rem;
 	background: linear-gradient(180deg, var(--techsome-primary-light) 0%, transparent 100%);
+	border-radius: var(--cg-radius-xl) var(--cg-radius-xl) 0 0;
+	overflow: hidden;
 }
 .cg-pricing__table .techsome-pricing-plan__name {
 	font-size: 1.35rem;
