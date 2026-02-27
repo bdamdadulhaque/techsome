@@ -1613,6 +1613,109 @@ textarea {
 	text-align: center;
 }
 
+/* ----- Pricing table (Free, Pro, Pro Plus) ----- */
+.cg-pricing {
+	padding: var(--cg-section-pad) 0;
+	background: #fff;
+	border-top: 1px solid var(--techsome-border);
+}
+.cg-pricing__subtitle {
+	text-align: center;
+	font-size: 1.0625rem;
+	color: var(--techsome-muted);
+	margin: 0 0 2.5rem;
+	max-width: 36rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2.5rem;
+}
+.cg-pricing__table {
+	width: 100%;
+	max-width: 100%;
+}
+.cg-pricing__table .techsome-pricing-table {
+	gap: 1.5rem;
+	align-items: stretch;
+}
+.cg-pricing__table .techsome-pricing-plan {
+	border-radius: var(--cg-radius-xl);
+	box-shadow: var(--cg-shadow);
+	border: 1px solid var(--techsome-border);
+	overflow: visible;
+	transition: transform var(--techsome-transition), box-shadow var(--techsome-transition), border-color var(--techsome-transition);
+}
+.cg-pricing__table .techsome-pricing-plan:hover {
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+	transform: translateY(-2px);
+}
+.cg-pricing__table .techsome-pricing-plan--featured {
+	border-color: var(--techsome-primary);
+	box-shadow: 0 0 0 2px var(--techsome-primary), 0 12px 40px rgba(37, 99, 235, 0.15);
+	transform: scale(1.02);
+}
+.cg-pricing__table .techsome-pricing-plan--featured:hover {
+	box-shadow: 0 0 0 2px var(--techsome-primary), 0 16px 48px rgba(37, 99, 235, 0.2);
+	transform: scale(1.02) translateY(-4px);
+}
+@media (max-width: 899px) {
+	.cg-pricing__table .techsome-pricing-plan--featured {
+		transform: none;
+	}
+	.cg-pricing__table .techsome-pricing-plan--featured:hover {
+		transform: translateY(-2px);
+	}
+}
+.cg-pricing__table .techsome-pricing-plan--featured::before {
+	padding: 0.5rem 1rem;
+	font-size: 0.75rem;
+	letter-spacing: 0.06em;
+}
+.cg-pricing__table .techsome-pricing-plan__head {
+	padding: 2rem 1.5rem 1.5rem;
+	border-bottom: 1px solid var(--techsome-border);
+}
+.cg-pricing__table .techsome-pricing-plan--featured .techsome-pricing-plan__head {
+	padding-top: 2.75rem;
+	background: linear-gradient(180deg, var(--techsome-primary-light) 0%, transparent 100%);
+}
+.cg-pricing__table .techsome-pricing-plan__name {
+	font-size: 1.35rem;
+	font-weight: 700;
+	color: var(--techsome-secondary);
+}
+.cg-pricing__table .techsome-pricing-plan__price {
+	font-size: 2.25rem;
+	font-weight: 800;
+	color: var(--techsome-primary);
+	line-height: 1.2;
+}
+.cg-pricing__table .techsome-pricing-plan__price-note {
+	font-size: 0.875rem;
+	color: var(--techsome-muted);
+}
+.cg-pricing__table .techsome-pricing-plan__features {
+	padding: 1.5rem 1.75rem;
+}
+.cg-pricing__table .techsome-pricing-plan__features li {
+	font-size: 0.9375rem;
+	margin-bottom: 0.625rem;
+}
+.cg-pricing__table .techsome-pricing-plan__foot {
+	padding: 1.5rem 1.75rem 2rem;
+}
+.cg-pricing__table .techsome-pricing-plan__foot .techsome-btn {
+	padding: 0.875rem 1.5rem;
+	font-weight: 600;
+}
+.cg-pricing__table .techsome-pricing-plan--free .techsome-pricing-plan__foot .techsome-btn {
+	border: 2px solid var(--techsome-border);
+}
+.cg-pricing__table .techsome-pricing-plan--free .techsome-pricing-plan__foot .techsome-btn:hover {
+	border-color: var(--techsome-primary);
+	color: var(--techsome-primary) !important;
+	background: var(--techsome-primary-light) !important;
+}
+
 /* ----- Final CTA ----- */
 .cg-cta {
 	position: relative;

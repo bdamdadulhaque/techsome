@@ -208,6 +208,74 @@ $free_setup_url = techsome_mod( 'techsome_free_setup_page_url', home_url( '/cont
 		</div>
 	</section>
 
+	<!-- Pricing table: Free, Pro, Pro Plus -->
+	<section class="cg-pricing" aria-labelledby="cg-pricing-title">
+		<div class="techsome-container">
+			<p class="cg-section__label"><?php esc_html_e( 'Pricing', 'techsome' ); ?></p>
+			<h2 id="cg-pricing-title" class="cg-section__title">
+				<?php esc_html_e( 'Choose Your Plan', 'techsome' ); ?>
+			</h2>
+			<p class="cg-pricing__subtitle">
+				<?php esc_html_e( 'Start free forever or unlock more with Pro and Pro Plus. No hidden fees.', 'techsome' ); ?>
+			</p>
+			<div class="techsome-pricing cg-pricing__table">
+				<div class="techsome-pricing-table">
+					<div class="techsome-pricing-plan techsome-pricing-plan--free">
+						<div class="techsome-pricing-plan__head">
+							<h3 class="techsome-pricing-plan__name"><?php esc_html_e( 'Free', 'techsome' ); ?></h3>
+							<p class="techsome-pricing-plan__price"><?php esc_html_e( '$0', 'techsome' ); ?></p>
+							<p class="techsome-pricing-plan__price-note"><?php esc_html_e( 'forever', 'techsome' ); ?></p>
+						</div>
+						<ul class="techsome-pricing-plan__features">
+							<li><?php esc_html_e( 'Core donation forms', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Basic campaigns & goals', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Stripe & PayPal', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Email support', 'techsome' ); ?></li>
+							<li><?php esc_html_e( '1 site', 'techsome' ); ?></li>
+						</ul>
+						<div class="techsome-pricing-plan__foot">
+							<a class="techsome-btn techsome-btn--primary" href="<?php echo esc_url( $wp_org_url ); ?>"><?php esc_html_e( 'Download Free', 'techsome' ); ?></a>
+						</div>
+					</div>
+					<div class="techsome-pricing-plan techsome-pricing-plan--pro techsome-pricing-plan--featured" data-badge="<?php esc_attr_e( 'Popular', 'techsome' ); ?>">
+						<div class="techsome-pricing-plan__head">
+							<h3 class="techsome-pricing-plan__name"><?php esc_html_e( 'Pro', 'techsome' ); ?></h3>
+							<p class="techsome-pricing-plan__price"><?php esc_html_e( '$99', 'techsome' ); ?></p>
+							<p class="techsome-pricing-plan__price-note"><?php esc_html_e( 'per year', 'techsome' ); ?></p>
+						</div>
+						<ul class="techsome-pricing-plan__features">
+							<li><?php esc_html_e( 'Everything in Free', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Unlimited campaigns', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Priority support', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Advanced reporting', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Unlimited sites', 'techsome' ); ?></li>
+						</ul>
+						<div class="techsome-pricing-plan__foot">
+							<a class="techsome-btn techsome-btn--primary" href="<?php echo esc_url( $plugin_url ); ?>"><?php esc_html_e( 'Get Pro', 'techsome' ); ?></a>
+						</div>
+					</div>
+					<div class="techsome-pricing-plan techsome-pricing-plan--pro-plus">
+						<div class="techsome-pricing-plan__head">
+							<h3 class="techsome-pricing-plan__name"><?php esc_html_e( 'Pro Plus', 'techsome' ); ?></h3>
+							<p class="techsome-pricing-plan__price"><?php esc_html_e( '$199', 'techsome' ); ?></p>
+							<p class="techsome-pricing-plan__price-note"><?php esc_html_e( 'per year', 'techsome' ); ?></p>
+						</div>
+						<ul class="techsome-pricing-plan__features">
+							<li><?php esc_html_e( 'Everything in Pro', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Dedicated support', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Custom integrations', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'White-label option', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Early access to new features', 'techsome' ); ?></li>
+						</ul>
+						<div class="techsome-pricing-plan__foot">
+							<a class="techsome-btn techsome-btn--primary" href="<?php echo esc_url( $plugin_url ); ?>"><?php esc_html_e( 'Get Pro Plus', 'techsome' ); ?></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- 7. Final CTA -->
 	<section class="cg-cta" aria-labelledby="cg-cta-title">
 		<div class="cg-cta__bg" aria-hidden="true"></div>
