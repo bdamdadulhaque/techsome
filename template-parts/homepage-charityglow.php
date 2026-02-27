@@ -277,6 +277,105 @@ $free_setup_url = techsome_mod( 'techsome_free_setup_page_url', home_url( '/cont
 		</div>
 	</section>
 
+	<!-- Compare plans: feature list -->
+	<section class="cg-compare" aria-labelledby="cg-compare-title">
+		<div class="techsome-container">
+			<p class="cg-section__label"><?php esc_html_e( 'Compare plans', 'techsome' ); ?></p>
+			<h2 id="cg-compare-title" class="cg-section__title">
+				<?php esc_html_e( 'See What\'s Included', 'techsome' ); ?>
+			</h2>
+			<p class="cg-compare__subtitle">
+				<?php esc_html_e( 'Everything you need to choose the right plan for your organization.', 'techsome' ); ?>
+			</p>
+			<div class="cg-compare__wrap">
+				<table class="cg-compare__table" role="table">
+					<thead>
+						<tr>
+							<th scope="col" class="cg-compare__feature-col"><?php esc_html_e( 'Feature', 'techsome' ); ?></th>
+							<th scope="col" class="cg-compare__plan-col"><?php esc_html_e( 'Free', 'techsome' ); ?></th>
+							<th scope="col" class="cg-compare__plan-col cg-compare__plan-col--featured"><?php esc_html_e( 'Pro', 'techsome' ); ?></th>
+							<th scope="col" class="cg-compare__plan-col"><?php esc_html_e( 'Pro Plus', 'techsome' ); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="cg-compare__feature"><?php esc_html_e( 'Core donation forms', 'techsome' ); ?></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+						</tr>
+						<tr>
+							<td class="cg-compare__feature"><?php esc_html_e( 'Basic campaigns & goals', 'techsome' ); ?></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+						</tr>
+						<tr>
+							<td class="cg-compare__feature"><?php esc_html_e( 'Stripe & PayPal', 'techsome' ); ?></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+						</tr>
+						<tr>
+							<td class="cg-compare__feature"><?php esc_html_e( 'Email support', 'techsome' ); ?></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+						</tr>
+						<tr>
+							<td class="cg-compare__feature"><?php esc_html_e( 'Sites', 'techsome' ); ?></td>
+							<td class="cg-compare__text"><?php esc_html_e( '1 site', 'techsome' ); ?></td>
+							<td class="cg-compare__text"><?php esc_html_e( 'Unlimited', 'techsome' ); ?></td>
+							<td class="cg-compare__text"><?php esc_html_e( 'Unlimited', 'techsome' ); ?></td>
+						</tr>
+						<tr class="cg-compare__row--divider">
+							<td class="cg-compare__feature"><?php esc_html_e( 'Unlimited campaigns', 'techsome' ); ?></td>
+							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+						</tr>
+						<tr>
+							<td class="cg-compare__feature"><?php esc_html_e( 'Priority support', 'techsome' ); ?></td>
+							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+						</tr>
+						<tr>
+							<td class="cg-compare__feature"><?php esc_html_e( 'Advanced reporting', 'techsome' ); ?></td>
+							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+						</tr>
+						<tr class="cg-compare__row--divider">
+							<td class="cg-compare__feature"><?php esc_html_e( 'Dedicated support', 'techsome' ); ?></td>
+							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+						</tr>
+						<tr>
+							<td class="cg-compare__feature"><?php esc_html_e( 'Custom integrations', 'techsome' ); ?></td>
+							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+						</tr>
+						<tr>
+							<td class="cg-compare__feature"><?php esc_html_e( 'White-label option', 'techsome' ); ?></td>
+							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+						</tr>
+						<tr>
+							<td class="cg-compare__feature"><?php esc_html_e( 'Early access to new features', 'techsome' ); ?></td>
+							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
 	<!-- 7. Final CTA -->
 	<section class="cg-cta" aria-labelledby="cg-cta-title">
 		<div class="cg-cta__bg" aria-hidden="true"></div>
