@@ -547,8 +547,25 @@ textarea {
    ------------------------------------------------------------------------- */
 .techsome-contact-page .wpcf7,
 .wpcf7.wpcf7-form {
-	max-width: 36rem;
+	max-width: 100%;
 	margin-top: 2rem;
+}
+.techsome-contact-page .wpcf7 select {
+	width: 100%;
+	padding: 0.625rem 1rem;
+	font-size: 1rem;
+	font-family: inherit;
+	line-height: 1.5;
+	color: var(--techsome-secondary);
+	background: var(--techsome-bg);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius);
+	cursor: pointer;
+}
+.techsome-contact-page .wpcf7 select:focus {
+	outline: none;
+	border-color: var(--techsome-primary);
+	box-shadow: 0 0 0 3px var(--techsome-primary-light);
 }
 
 /* CF7 form card (wrapper is .wpcf7) */
@@ -895,10 +912,229 @@ textarea {
 .techsome-contact-page .techsome-page__title {
 	margin-bottom: 0.5rem;
 }
+.techsome-contact-page__header {
+	margin-bottom: 2rem;
+}
 .techsome-contact-page .techsome-contact__body {
 	margin-bottom: 0;
-	max-width: 42rem;
+	max-width: 100%;
 	color: var(--techsome-muted);
+}
+.techsome-contact__grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2.5rem;
+	align-items: start;
+	margin-bottom: 3.5rem;
+}
+@media (max-width: 899px) {
+	.techsome-contact__grid {
+		grid-template-columns: 1fr;
+	}
+}
+.techsome-contact__main {
+	min-width: 0;
+}
+.techsome-contact__form-wrap {
+	margin-top: 1.5rem;
+}
+.techsome-contact__demo {
+	min-width: 0;
+}
+.techsome-contact-demo-card {
+	background: var(--techsome-bg);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius-lg);
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+	padding: 2rem;
+	position: sticky;
+	top: 2rem;
+}
+.techsome-contact-demo-card__title {
+	margin: 0 0 0.75rem;
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--techsome-secondary);
+}
+.techsome-contact-demo-card__text {
+	margin: 0 0 1.5rem;
+	font-size: 0.9375rem;
+	color: var(--techsome-muted);
+	line-height: 1.55;
+}
+.techsome-contact-demo-card__success {
+	padding: 1rem 1.25rem;
+	background: #f0fdf4;
+	border: 1px solid #86efac;
+	border-radius: var(--techsome-radius);
+	color: #166534;
+	font-size: 0.9375rem;
+}
+.techsome-contact-demo-form__row {
+	margin: 0 0 1.25rem;
+}
+.techsome-contact-demo-form__row label {
+	display: block;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--techsome-secondary);
+	margin-bottom: 0.375rem;
+}
+.techsome-contact-demo-form__row input {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	font-size: 1rem;
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius);
+	transition: border-color var(--techsome-transition), box-shadow var(--techsome-transition);
+}
+.techsome-contact-demo-form__row input:focus {
+	outline: none;
+	border-color: var(--techsome-primary);
+	box-shadow: 0 0 0 3px var(--techsome-primary-light);
+}
+.techsome-contact-demo-form__submit {
+	margin: 0;
+}
+.techsome-contact-demo-form__submit .techsome-btn {
+	width: 100%;
+	justify-content: center;
+}
+.techsome-contact__faq {
+	border-top: 1px solid var(--techsome-border);
+	padding-top: 2.5rem;
+}
+.techsome-contact-faq__title {
+	margin: 0 0 1.5rem;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--techsome-secondary);
+}
+.techsome-contact-faq__list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	max-width: 48rem;
+}
+.techsome-contact-faq__item {
+	background: var(--techsome-bg);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius);
+	overflow: hidden;
+	transition: border-color var(--techsome-transition);
+}
+.techsome-contact-faq__item:hover,
+.techsome-contact-faq__item[open] {
+	border-color: var(--techsome-primary);
+}
+.techsome-contact-faq__question {
+	display: block;
+	padding: 1rem 1.25rem;
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--techsome-secondary);
+	cursor: pointer;
+	list-style: none;
+	transition: background-color var(--techsome-transition);
+}
+.techsome-contact-faq__question::-webkit-details-marker {
+	display: none;
+}
+.techsome-contact-faq__question::after {
+	content: "+";
+	float: right;
+	font-size: 1.25rem;
+	font-weight: 400;
+	color: var(--techsome-muted);
+	line-height: 1;
+}
+.techsome-contact-faq__item[open] .techsome-contact-faq__question::after {
+	content: "−";
+}
+.techsome-contact-faq__question:hover {
+	background: var(--techsome-bg-subtle);
+}
+.techsome-contact-faq__answer {
+	padding: 0 1.25rem 1.25rem;
+}
+.techsome-contact-faq__answer p {
+	margin: 0;
+	font-size: 0.9375rem;
+	color: var(--techsome-muted);
+	line-height: 1.6;
+}
+.techsome-contact-form {
+	background: var(--techsome-bg);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius-lg);
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+	padding: 2rem;
+	max-width: 100%;
+}
+.techsome-contact-form__success {
+	padding: 1.25rem 1.5rem;
+	background: #f0fdf4;
+	border: 1px solid #86efac;
+	border-radius: var(--techsome-radius);
+	color: #166534;
+	font-weight: 500;
+}
+.techsome-contact-form__error {
+	margin: 0 0 1rem;
+	padding: 0.75rem 1rem;
+	background: #fef2f2;
+	border: 1px solid #fecaca;
+	border-radius: var(--techsome-radius);
+	color: #b91c1c;
+	font-size: 0.9375rem;
+}
+.techsome-contact-form__row {
+	margin: 0 0 1.25rem;
+}
+.techsome-contact-form__row label {
+	display: block;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--techsome-secondary);
+	margin-bottom: 0.375rem;
+}
+.techsome-contact-form .required {
+	color: #b91c1c;
+}
+.techsome-contact-form__row input,
+.techsome-contact-form__row select,
+.techsome-contact-form__row textarea {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	font-size: 1rem;
+	font-family: inherit;
+	line-height: 1.5;
+	color: var(--techsome-secondary);
+	background: var(--techsome-bg);
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius);
+	transition: border-color var(--techsome-transition), box-shadow var(--techsome-transition);
+}
+.techsome-contact-form__row select {
+	cursor: pointer;
+	appearance: auto;
+}
+.techsome-contact-form__row textarea {
+	min-height: 140px;
+	resize: vertical;
+}
+.techsome-contact-form__row input:focus,
+.techsome-contact-form__row select:focus,
+.techsome-contact-form__row textarea:focus {
+	outline: none;
+	border-color: var(--techsome-primary);
+	box-shadow: 0 0 0 3px var(--techsome-primary-light);
+}
+.techsome-contact-form__submit {
+	margin: 1.25rem 0 0;
+}
+.techsome-contact-form__submit .techsome-btn {
+	min-width: 10rem;
 }
 .techsome-page__excerpt {
 	font-size: 1.125rem;

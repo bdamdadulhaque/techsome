@@ -210,3 +210,77 @@ function techsome_shortcode_services_wrapper( $atts, $content = null ) {
 	$content = do_shortcode( $content );
 	return '<div class="techsome-services"><h2 class="techsome-services__title">' . esc_html( $atts['title'] ) . '</h2><p class="techsome-services__subtitle">' . esc_html( $atts['subtitle'] ) . '</p><div class="techsome-service-cards">' . $content . '</div></div>';
 }
+
+/**
+ * [techsome_contact_form] – contact form with subject dropdown. Sends via wp_mail.
+ */
+add_shortcode( 'techsome_contact_form', 'techsome_shortcode_contact_form' );
+function techsome_shortcode_contact_form( $atts ) {
+	$sent = false;
+	$error = '';
+	if ( isset( $_POST['techsome_contact_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['techsome_contact_nonce'] ) ), 'techsome_contact' ) ) {
+		$name    = isset( $_POST['techsome_contact_name'] ) ? sanitize_text_field( wp_unslash( $_POST['techsome_contact_name'] ) ) : '';
+		$email   = isset( $_POST['techsome_contact_email'] ) ? sanitize_email( wp_unslash( $_POST['techsome_contact_email'] ) ) : '';
+		$subject = isset( $_POST['techsome_contact_subject'] ) ? sanitize_text_field( wp_unslash( $_POST['techsome_contact_subject'] ) ) : '';
+		$message = isset( $_POST['techsome_contact_message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['techsome_contact_message'] ) ) : '';
+		if ( $name && $email && is_email( $email ) && $message ) {
+			$to      = get_option( 'admin_email' );
+			$subj    = sprintf( '[%1$s] %2$s', get_bloginfo( 'name' ), $subject ? $subject : __( 'Contact form', 'techsome' ) );
+			$body    = sprintf( "Name: %s\nEmail: %s\nSubject: %s\n\nMessage:\n%s", $name, $email, $subject, $message );
+			$headers = array( 'Content-Type: text/plain; charset=UTF-8', 'Reply-To: ' . $name . ' <' . $email . '>' );
+			$sent    = wp_mail( $to, $subj, $body, $headers );
+			if ( ! $sent ) {
+				$error = __( 'Could not send. Please try again or email us directly.', 'techsome' );
+			}
+		} else {
+			$error = __( 'Please fill all required fields and use a valid email.', 'techsome' );
+		}
+	}
+
+	$subjects = array(
+		''                           => __( '— Select subject —', 'techsome' ),
+		__( 'General inquiry', 'techsome' ) => __( 'General inquiry', 'techsome' ),
+		__( 'Support', 'techsome' )         => __( 'Support', 'techsome' ),
+		__( 'Sales', 'techsome' )            => __( 'Sales', 'techsome' ),
+		__( 'Partnership', 'techsome' )      => __( 'Partnership', 'techsome' ),
+		__( 'Other', 'techsome' )            => __( 'Other', 'techsome' ),
+	);
+
+	ob_start();
+	if ( $sent ) {
+		echo '<div class="techsome-contact-form__success" role="alert">' . esc_html__( 'Thank you. We\'ll get back to you soon.', 'techsome' ) . '</div>';
+		return ob_get_clean();
+	}
+	?>
+	<form class="techsome-contact-form" method="post" action="">
+		<?php wp_nonce_field( 'techsome_contact', 'techsome_contact_nonce' ); ?>
+		<?php if ( $error ) : ?>
+			<p class="techsome-contact-form__error" role="alert"><?php echo esc_html( $error ); ?></p>
+		<?php endif; ?>
+		<p class="techsome-contact-form__row">
+			<label for="techsome_contact_name"><?php esc_html_e( 'Your name', 'techsome' ); ?> <span class="required">*</span></label>
+			<input type="text" id="techsome_contact_name" name="techsome_contact_name" required value="<?php echo esc_attr( isset( $_POST['techsome_contact_name'] ) ? sanitize_text_field( wp_unslash( $_POST['techsome_contact_name'] ) ) : '' ); ?>" />
+		</p>
+		<p class="techsome-contact-form__row">
+			<label for="techsome_contact_email"><?php esc_html_e( 'Email', 'techsome' ); ?> <span class="required">*</span></label>
+			<input type="email" id="techsome_contact_email" name="techsome_contact_email" required value="<?php echo esc_attr( isset( $_POST['techsome_contact_email'] ) ? sanitize_email( wp_unslash( $_POST['techsome_contact_email'] ) ) : '' ); ?>" />
+		</p>
+		<p class="techsome-contact-form__row">
+			<label for="techsome_contact_subject"><?php esc_html_e( 'Subject', 'techsome' ); ?></label>
+			<select id="techsome_contact_subject" name="techsome_contact_subject">
+				<?php foreach ( $subjects as $value => $label ) : ?>
+					<option value="<?php echo esc_attr( $value ); ?>" <?php selected( isset( $_POST['techsome_contact_subject'] ) ? sanitize_text_field( wp_unslash( $_POST['techsome_contact_subject'] ) ) : '', $value ); ?>><?php echo esc_html( $label ); ?></option>
+				<?php endforeach; ?>
+			</select>
+		</p>
+		<p class="techsome-contact-form__row">
+			<label for="techsome_contact_message"><?php esc_html_e( 'Message', 'techsome' ); ?> <span class="required">*</span></label>
+			<textarea id="techsome_contact_message" name="techsome_contact_message" rows="5" required><?php echo esc_textarea( isset( $_POST['techsome_contact_message'] ) ? wp_unslash( $_POST['techsome_contact_message'] ) : '' ); ?></textarea>
+		</p>
+		<p class="techsome-contact-form__submit">
+			<button type="submit" class="techsome-btn techsome-btn--primary"><?php esc_html_e( 'Send message', 'techsome' ); ?></button>
+		</p>
+	</form>
+	<?php
+	return ob_get_clean();
+}
