@@ -25,7 +25,7 @@ $free_setup_url = techsome_mod( 'techsome_free_setup_page_url', home_url( '/cont
 		<div class="techsome-container">
 			<p class="cg-hero__badge"><?php esc_html_e( 'Free on WordPress.org', 'techsome' ); ?></p>
 			<h1 id="cg-hero-title" class="cg-hero__title">
-				<?php esc_html_e( 'The Simple WordPress Donation Plugin for Nonprofits & Charities', 'techsome' ); ?>
+				<?php esc_html_e( 'The WordPress Recurring Donation Plugin for Nonprofits & Charities', 'techsome' ); ?>
 			</h1>
 			<p class="cg-hero__subtitle">
 				<?php esc_html_e( 'Accept one-time and recurring donations securely with Stripe, PayPal, and more. Create campaigns, manage donors, and track your impact—all from your WordPress site.', 'techsome' ); ?>
@@ -37,20 +37,6 @@ $free_setup_url = techsome_mod( 'techsome_free_setup_page_url', home_url( '/cont
 				<a class="techsome-btn techsome-btn--outline techsome-btn--lg" href="<?php echo esc_url( $demo_url ); ?>">
 					<?php esc_html_e( 'View Live Demo', 'techsome' ); ?>
 				</a>
-			</div>
-			<div class="cg-hero__mockup" aria-hidden="true">
-				<div class="cg-hero__mockup-browser">
-					<div class="cg-hero__mockup-bar">
-						<span></span><span></span><span></span>
-					</div>
-					<div class="cg-hero__mockup-body">
-						<div class="cg-hero__mockup-form">
-							<div class="cg-hero__mockup-line"></div>
-							<div class="cg-hero__mockup-line cg-hero__mockup-line--short"></div>
-							<div class="cg-hero__mockup-line cg-hero__mockup-line--btn"></div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</section>
@@ -121,7 +107,7 @@ $free_setup_url = techsome_mod( 'techsome_free_setup_page_url', home_url( '/cont
 				<div class="cg-trust__author">
 					<div class="cg-trust__avatar" aria-hidden="true"></div>
 					<div>
-						<cite class="cg-trust__cite"><?php esc_html_e( 'Director at Sample Nonprofit', 'techsome' ); ?></cite>
+						<cite class="cg-trust__cite"><?php esc_html_e( 'Director at SF', 'techsome' ); ?></cite>
 					</div>
 				</div>
 			</div>
@@ -227,11 +213,12 @@ $free_setup_url = techsome_mod( 'techsome_free_setup_page_url', home_url( '/cont
 							<p class="techsome-pricing-plan__price-note"><?php esc_html_e( 'forever', 'techsome' ); ?></p>
 						</div>
 						<ul class="techsome-pricing-plan__features">
+							<li><?php esc_html_e( 'Recurring donations', 'techsome' ); ?></li>
 							<li><?php esc_html_e( 'Core donation forms', 'techsome' ); ?></li>
 							<li><?php esc_html_e( 'Basic campaigns & goals', 'techsome' ); ?></li>
 							<li><?php esc_html_e( 'Stripe & PayPal', 'techsome' ); ?></li>
 							<li><?php esc_html_e( 'Email support', 'techsome' ); ?></li>
-							<li><?php esc_html_e( '1 site', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Unlimited sites', 'techsome' ); ?></li>
 						</ul>
 						<div class="techsome-pricing-plan__foot">
 							<a class="techsome-btn techsome-btn--primary" href="<?php echo esc_url( $wp_org_url ); ?>"><?php esc_html_e( 'Download Free', 'techsome' ); ?></a>
@@ -247,9 +234,11 @@ $free_setup_url = techsome_mod( 'techsome_free_setup_page_url', home_url( '/cont
 						<ul class="techsome-pricing-plan__features">
 							<li><?php esc_html_e( 'Everything in Free', 'techsome' ); ?></li>
 							<li><?php esc_html_e( 'Unlimited campaigns', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'PDF Receipt', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Advanced Campaign Reports', 'techsome' ); ?></li>
+							<li><?php esc_html_e( 'Elementor Widget', 'techsome' ); ?></li>
 							<li><?php esc_html_e( 'Priority support', 'techsome' ); ?></li>
-							<li><?php esc_html_e( 'Advanced reporting', 'techsome' ); ?></li>
-							<li><?php esc_html_e( 'Unlimited sites', 'techsome' ); ?></li>
+							<li><?php esc_html_e( '1 site', 'techsome' ); ?></li>
 						</ul>
 						<div class="techsome-pricing-plan__foot">
 							<a class="techsome-btn techsome-btn--primary" href="<?php echo esc_url( $plugin_url ); ?>"><?php esc_html_e( 'Get Pro', 'techsome' ); ?></a>
@@ -267,6 +256,7 @@ $free_setup_url = techsome_mod( 'techsome_free_setup_page_url', home_url( '/cont
 							<li><?php esc_html_e( 'Custom integrations', 'techsome' ); ?></li>
 							<li><?php esc_html_e( 'White-label option', 'techsome' ); ?></li>
 							<li><?php esc_html_e( 'Early access to new features', 'techsome' ); ?></li>
+							<li><?php esc_html_e( '5 sites', 'techsome' ); ?></li>
 						</ul>
 						<div class="techsome-pricing-plan__foot">
 							<a class="techsome-btn techsome-btn--primary" href="<?php echo esc_url( $plugin_url ); ?>"><?php esc_html_e( 'Get Pro Plus', 'techsome' ); ?></a>
@@ -324,13 +314,13 @@ $free_setup_url = techsome_mod( 'techsome_free_setup_page_url', home_url( '/cont
 						</tr>
 						<tr>
 							<td class="cg-compare__feature"><?php esc_html_e( 'Sites', 'techsome' ); ?></td>
+							<td class="cg-compare__text"><?php esc_html_e( 'Unlimited', 'techsome' ); ?></td>
 							<td class="cg-compare__text"><?php esc_html_e( '1 site', 'techsome' ); ?></td>
-							<td class="cg-compare__text"><?php esc_html_e( 'Unlimited', 'techsome' ); ?></td>
-							<td class="cg-compare__text"><?php esc_html_e( 'Unlimited', 'techsome' ); ?></td>
+							<td class="cg-compare__text"><?php esc_html_e( '5 sites', 'techsome' ); ?></td>
 						</tr>
 						<tr class="cg-compare__row--divider">
 							<td class="cg-compare__feature"><?php esc_html_e( 'Unlimited campaigns', 'techsome' ); ?></td>
-							<td><span class="cg-compare__no" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
+							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Not included', 'techsome' ); ?></span></td>
 							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
 							<td><span class="cg-compare__yes" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Included', 'techsome' ); ?></span></td>
 						</tr>
