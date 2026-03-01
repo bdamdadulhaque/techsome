@@ -163,6 +163,23 @@ body {
 	outline: 2px solid var(--techsome-primary);
 	outline-offset: 2px;
 }
+.techsome-menu-close {
+	display: none;
+}
+.techsome-menu-overlay {
+	display: none;
+	position: fixed;
+	inset: 0;
+	z-index: 98;
+	background: rgba(0, 0, 0, 0.4);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.techsome-menu-overlay.is-visible {
+	opacity: 1;
+	visibility: visible;
+}
 .techsome-menu-toggle__icon {
 	width: 24px;
 	height: 24px;
@@ -275,12 +292,56 @@ body {
 	gap: 1rem;
 	min-width: 0;
 }
+.techsome-header--classic .techsome-header__nav-wrap {
+	flex: 1;
+	justify-content: space-between;
+}
+.techsome-header__nav-spacer {
+	flex: 1;
+	min-width: 0;
+}
+.techsome-header__nav-spacer--right {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
 .techsome-header__actions {
 	flex-shrink: 0;
 }
 
 /* Mobile: show toggle, hide nav by default; JS toggles .is-open */
 @media (max-width: 767px) {
+	.techsome-menu-close {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		width: 2.5rem;
+		height: 2.5rem;
+		padding: 0;
+		border: none;
+		background: var(--techsome-bg-subtle);
+		color: var(--techsome-secondary);
+		font-size: 1.75rem;
+		line-height: 1;
+		cursor: pointer;
+		border-radius: var(--techsome-radius);
+		transition: background-color var(--techsome-transition), color var(--techsome-transition);
+	}
+	.techsome-menu-close:hover,
+	.techsome-menu-close:focus {
+		background: var(--techsome-border);
+		color: var(--techsome-primary);
+		outline: none;
+	}
+	.techsome-menu-close:focus {
+		box-shadow: 0 0 0 2px var(--techsome-primary);
+	}
+	.techsome-menu-overlay {
+		display: block;
+	}
 	.techsome-header__nav-wrap {
 		position: fixed;
 		top: 0;
@@ -299,6 +360,13 @@ body {
 	}
 	.techsome-header__nav-wrap.is-open {
 		transform: translateX(0);
+	}
+	.techsome-header--classic .techsome-header__nav-wrap .techsome-header__nav-spacer:first-of-type {
+		display: none;
+	}
+	.techsome-header--classic .techsome-header__nav-spacer--right {
+		flex: 0;
+		justify-content: flex-start;
 	}
 	.techsome-nav {
 		display: block;
