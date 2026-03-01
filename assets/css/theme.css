@@ -2642,3 +2642,228 @@ textarea {
 .edd .edd-submit:hover {
 	opacity: 0.9;
 }
+
+/* -------------------------------------------------------------------------
+   Feature page (Campaign / Donation Forms / Recurring Donation)
+   ------------------------------------------------------------------------- */
+.techsome-feature-page {
+	--cg-section-pad: clamp(3.5rem, 7vw, 5rem);
+}
+.techsome-feature-page .techsome-feature__hero {
+	background: linear-gradient(135deg, var(--techsome-primary-light) 0%, #fff 60%);
+	padding: var(--cg-section-pad) 0;
+	text-align: center;
+	border-bottom: 1px solid var(--techsome-border);
+}
+.techsome-feature-page .techsome-feature__label {
+	font-size: 0.8125rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--techsome-primary);
+	margin: 0 0 0.75rem;
+}
+.techsome-feature-page .techsome-feature__title {
+	font-size: clamp(2rem, 5vw, 2.75rem);
+	font-weight: 700;
+	color: var(--techsome-secondary);
+	margin: 0 0 0.5rem;
+	line-height: 1.2;
+}
+.techsome-feature-page .techsome-feature__subtitle {
+	font-size: 1.125rem;
+	color: var(--techsome-muted);
+	max-width: 36rem;
+	margin: 0 auto 1.5rem;
+	line-height: 1.6;
+}
+.techsome-feature-page .techsome-feature__hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	justify-content: center;
+}
+.techsome-feature-page .techsome-feature__intro {
+	padding: var(--cg-section-pad) 0;
+	background: var(--techsome-bg);
+}
+.techsome-feature-page .techsome-feature__intro-text {
+	font-size: 1.125rem;
+	line-height: 1.75;
+	color: var(--techsome-secondary);
+	max-width: 48rem;
+	margin: 0;
+}
+.techsome-feature-page .techsome-feature__points {
+	padding: var(--cg-section-pad) 0;
+	background: var(--techsome-bg-subtle);
+}
+.techsome-feature-page .techsome-feature__section-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--techsome-secondary);
+	margin: 0 0 1.5rem;
+	text-align: center;
+}
+.techsome-feature-page .techsome-feature__points-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1.5rem;
+	margin-top: 1rem;
+}
+.techsome-feature-page .techsome-feature__point {
+	background: var(--techsome-bg);
+	border-radius: var(--techsome-radius-lg);
+	padding: 1.5rem;
+	box-shadow: var(--techsome-shadow);
+	border: 1px solid var(--techsome-border);
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.techsome-feature-page .techsome-feature__point:hover {
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+	transform: translateY(-2px);
+}
+.techsome-feature-page .techsome-feature__point-title {
+	font-size: 1.0625rem;
+	font-weight: 600;
+	color: var(--techsome-secondary);
+	margin: 0 0 0.5rem;
+}
+.techsome-feature-page .techsome-feature__point-text {
+	font-size: 0.9375rem;
+	color: var(--techsome-muted);
+	line-height: 1.6;
+	margin: 0;
+}
+.techsome-feature-page .techsome-feature__plans {
+	padding: var(--cg-section-pad) 0;
+	background: var(--techsome-bg);
+}
+.techsome-feature-page .techsome-feature__plans-desc {
+	text-align: center;
+	color: var(--techsome-muted);
+	margin: -0.5rem 0 1.5rem;
+	max-width: 32rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+.techsome-feature-page .techsome-feature__plans-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1.5rem;
+	align-items: stretch;
+}
+.techsome-feature-page .techsome-feature__plan {
+	border: 1px solid var(--techsome-border);
+	border-radius: var(--techsome-radius-lg);
+	padding: 1.75rem;
+	background: var(--techsome-bg);
+	box-shadow: var(--techsome-shadow-sm);
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.techsome-feature-page .techsome-feature__plan:hover {
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.techsome-feature-page .techsome-feature__plan--pro {
+	border-color: var(--techsome-primary);
+	background: linear-gradient(180deg, var(--techsome-primary-light) 0%, var(--techsome-bg) 20%);
+}
+.techsome-feature-page .techsome-feature__plan-badge {
+	position: absolute;
+	top: 0;
+	right: 1rem;
+	transform: translateY(-50%);
+	background: var(--techsome-primary);
+	color: #fff;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 0.25rem 0.6rem;
+	border-radius: 999px;
+}
+.techsome-feature-page .techsome-feature__plan-name {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--techsome-secondary);
+	margin: 0 0 1rem;
+}
+.techsome-feature-page .techsome-feature__plan-list {
+	list-style: none;
+	margin: 0 0 1.5rem;
+	padding: 0;
+	flex: 1;
+}
+.techsome-feature-page .techsome-feature__plan-list li {
+	position: relative;
+	padding-left: 1.5rem;
+	margin-bottom: 0.5rem;
+	font-size: 0.9375rem;
+	color: var(--techsome-secondary);
+	line-height: 1.5;
+}
+.techsome-feature-page .techsome-feature__plan-list li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.5em;
+	width: 6px;
+	height: 6px;
+	background: var(--techsome-primary);
+	border-radius: 50%;
+}
+.techsome-feature-page .techsome-feature__plan--pro .techsome-feature__plan-list li::before {
+	background: var(--techsome-primary);
+}
+.techsome-feature-page .techsome-feature__plan .techsome-btn {
+	margin-top: auto;
+	width: 100%;
+	justify-content: center;
+}
+.techsome-feature-page .techsome-feature__cta {
+	padding: var(--cg-section-pad) 0;
+	background: var(--techsome-bg-subtle);
+	text-align: center;
+	border-top: 1px solid var(--techsome-border);
+}
+.techsome-feature-page .techsome-feature__cta-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--techsome-secondary);
+	margin: 0 0 0.5rem;
+}
+.techsome-feature-page .techsome-feature__cta-text {
+	color: var(--techsome-muted);
+	margin: 0 0 1.5rem;
+	max-width: 32rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+.techsome-feature-page .techsome-feature__cta-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	justify-content: center;
+}
+.techsome-feature-page .techsome-feature__extra {
+	padding: var(--cg-section-pad) 0;
+	background: var(--techsome-bg);
+}
+.techsome-feature-page .techsome-page__header,
+.techsome-feature-page .techsome-page__title {
+	margin: 0 0 1rem;
+}
+@media (max-width: 640px) {
+	.techsome-feature-page .techsome-feature__hero-actions,
+	.techsome-feature-page .techsome-feature__cta-actions {
+		flex-direction: column;
+	}
+	.techsome-feature-page .techsome-feature__hero-actions .techsome-btn,
+	.techsome-feature-page .techsome-feature__cta-actions .techsome-btn {
+		width: 100%;
+		justify-content: center;
+	}
+}

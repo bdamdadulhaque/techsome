@@ -22,6 +22,7 @@ require_once TECHSOME_DIR . 'inc/block-patterns.php';
 require_once TECHSOME_DIR . 'inc/product-meta.php';
 require_once TECHSOME_DIR . 'inc/shortcodes.php';
 require_once TECHSOME_DIR . 'inc/contact-handler.php';
+require_once TECHSOME_DIR . 'inc/feature-content.php';
 
 /**
  * Add body class when sidebar is active.
