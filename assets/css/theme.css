@@ -1044,6 +1044,10 @@ textarea {
 .techsome-prose a:hover {
 	text-decoration: underline;
 }
+/* Blog listing: let content use full width instead of 65ch so cards/description fit */
+.techsome-blog-wrap .techsome-prose {
+	max-width: none;
+}
 .techsome-page__title,
 .techsome-page-title {
 	margin: 0 0 0.375em;
@@ -1317,7 +1321,7 @@ textarea {
 	padding: 1rem 1.25rem;
 }
 .techsome-card__title {
-	margin: 0 0 0.25rem;
+	margin: 1rem 0 0.25rem;
 	font-size: 1.125rem;
 }
 .techsome-card__title a {
@@ -1354,6 +1358,43 @@ textarea {
 	color: var(--techsome-muted);
 	font-size: 1.0625rem;
 	line-height: 1.6;
+}
+
+/* Blog + sidebar: main content and sidebar side by side */
+.has-sidebar .techsome-blog-wrap {
+	display: grid;
+	grid-template-columns: 1fr 300px;
+	gap: 2rem 2.5rem;
+	align-items: start;
+}
+.has-sidebar .techsome-blog-wrap .techsome-archive-header {
+	grid-column: 1 / -1;
+}
+.has-sidebar .techsome-blog-wrap .techsome-posts {
+	grid-column: 1;
+	min-width: 0;
+}
+.has-sidebar .techsome-blog-wrap .nav-links,
+.has-sidebar .techsome-blog-wrap .pagination,
+.has-sidebar .techsome-blog-wrap nav.navigation {
+	grid-column: 1;
+}
+.has-sidebar .techsome-blog-wrap .techsome-sidebar {
+	grid-column: 2;
+	grid-row: 2 / 4;
+	position: sticky;
+	top: 2rem;
+	min-width: 0;
+}
+@media (max-width: 899px) {
+	.has-sidebar .techsome-blog-wrap {
+		grid-template-columns: 1fr;
+	}
+	.has-sidebar .techsome-blog-wrap .techsome-sidebar {
+		grid-column: 1;
+		grid-row: auto;
+		position: static;
+	}
 }
 
 .techsome-posts--grid {
