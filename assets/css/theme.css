@@ -1006,18 +1006,18 @@ textarea {
    Prose & typography
    ------------------------------------------------------------------------- */
 .techsome-prose {
-	max-width: 65ch;
+	max-width: none;
 	color: var(--techsome-secondary);
 }
 
-/* Product/page body: full width so pricing and services can span; keep text at 65ch */
+/* Product/page body: full width so pricing and services can span */
 .techsome-product__body.techsome-prose,
 .techsome-page__body.techsome-prose {
 	max-width: 100%;
 }
 .techsome-product__body.techsome-prose > *:not(.techsome-pricing):not(.techsome-services),
 .techsome-page__body.techsome-prose > *:not(.techsome-pricing):not(.techsome-services) {
-	max-width: 65ch;
+	max-width: none;
 }
 .techsome-prose h1,
 .techsome-prose h2,
@@ -1453,6 +1453,7 @@ textarea {
 .techsome-single__meta {
 	font-size: 0.875rem;
 	color: #64748b;
+	margin-bottom: 1.25rem;
 }
 .techsome-single__thumb img,
 .techsome-single__hero img {
@@ -1465,13 +1466,13 @@ textarea {
 	max-width: 100%;
 }
 .techsome-single__content.techsome-prose {
-	max-width: 65ch;
+	max-width: none;
 	line-height: 1.75;
 }
-/* Ensure paragraph block has same left/right spacing as title and meta */
+/* Align content with image: no extra horizontal padding so content lines up with image edges */
 .techsome-content .techsome-single .techsome-single__content {
-	padding-left: 1.25rem;
-	padding-right: 1.25rem;
+	padding-left: 0;
+	padding-right: 0;
 }
 .techsome-single .techsome-single__content p:first-of-type {
 	margin-top: 0;
@@ -1488,7 +1489,21 @@ textarea {
 .techsome-related__grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-	gap: 1rem;
+	gap: 1.75rem;
+}
+.techsome-related__item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+.techsome-related__item img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.techsome-related__item h3 {
+	margin: 0;
+	font-size: 1rem;
 }
 .techsome-related__date {
 	font-size: 0.875rem;
