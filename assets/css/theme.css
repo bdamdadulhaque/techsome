@@ -1433,6 +1433,33 @@ textarea {
 	}
 }
 
+/* Single post + sidebar: main content and sidebar side by side (same as blog) */
+.has-sidebar .techsome-single-wrap {
+	display: grid;
+	grid-template-columns: 1fr 300px;
+	gap: 2rem 2.5rem;
+	align-items: start;
+}
+.has-sidebar .techsome-single-wrap .techsome-single-main {
+	grid-column: 1;
+	min-width: 0;
+}
+.has-sidebar .techsome-single-wrap .techsome-sidebar {
+	grid-column: 2;
+	position: sticky;
+	top: 2rem;
+	min-width: 0;
+}
+@media (max-width: 899px) {
+	.has-sidebar .techsome-single-wrap {
+		grid-template-columns: 1fr;
+	}
+	.has-sidebar .techsome-single-wrap .techsome-sidebar {
+		grid-column: 1;
+		position: static;
+	}
+}
+
 .techsome-posts--grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
