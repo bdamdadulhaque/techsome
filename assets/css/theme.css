@@ -1044,6 +1044,42 @@ textarea {
 .techsome-prose a:hover {
 	text-decoration: underline;
 }
+/* Tables in prose (single post, pages): spacing and layout */
+.techsome-prose table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1.5em 0;
+	font-size: 0.9375rem;
+	overflow-wrap: break-word;
+}
+.techsome-prose table th,
+.techsome-prose table td {
+	padding: 0.625rem 0.875rem;
+	border: 1px solid var(--techsome-border);
+	text-align: left;
+	vertical-align: top;
+}
+.techsome-prose table thead th {
+	background: var(--techsome-bg-subtle);
+	font-weight: 600;
+	color: var(--techsome-secondary);
+}
+.techsome-prose table tbody tr:nth-child(even) {
+	background: rgba(0, 0, 0, 0.02);
+}
+.techsome-prose table tbody tr:hover {
+	background: rgba(0, 0, 0, 0.03);
+}
+/* Wrap wide tables so they don't overflow */
+.techsome-prose .wp-block-table,
+.techsome-single__content .wp-block-table {
+	overflow-x: auto;
+	margin: 1.5em 0;
+}
+.techsome-prose .wp-block-table table,
+.techsome-single__content .wp-block-table table {
+	margin: 0;
+}
 /* Blog listing: let content use full width instead of 65ch so cards/description fit */
 .techsome-blog-wrap .techsome-prose {
 	max-width: none;
