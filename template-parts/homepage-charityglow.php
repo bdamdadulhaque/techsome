@@ -121,10 +121,13 @@ $free_setup_url = techsome_mod( 'techsome_free_setup_page_url', home_url( '/cont
 			<div class="cg-offer__inner">
 				<span class="cg-offer__ribbon" aria-hidden="true"><?php esc_html_e( 'Limited offer', 'techsome' ); ?></span>
 				<h2 id="cg-offer-title" class="cg-offer__title">
-					<?php esc_html_e( 'Free Setup Assistance for the First 100 Charities', 'techsome' ); ?>
+					<?php esc_html_e( 'Free Setup Assistance for the First 100 Charities.', 'techsome' ); ?>
 				</h2>
 				<p class="cg-offer__text">
 					<?php esc_html_e( "We'll help you configure Stripe, create your first campaign, and embed your forms. No cost, no obligation.", 'techsome' ); ?>
+				</p>
+				<p class="cg-offer__text">
+					<?php esc_html_e( "When our user cross the 100 then offer will be closed.", 'techsome' ); ?>
 				</p>
 				<a class="techsome-btn techsome-btn--white techsome-btn--lg" href="<?php echo esc_url( $free_setup_url ); ?>">
 					<?php esc_html_e( 'Claim Your Free Setup', 'techsome' ); ?>

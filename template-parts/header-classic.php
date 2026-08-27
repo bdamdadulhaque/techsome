@@ -14,6 +14,7 @@ $cta_text = techsome_mod( 'techsome_header_cta_text', __( 'Get CharityGlow', 'te
 $cta_url  = techsome_mod( 'techsome_header_cta_url', '#' );
 ?>
 <header class="techsome-header techsome-header--classic<?php echo $sticky ? ' techsome-header--sticky' : ''; ?>" role="banner">
+	<div class="techsome-menu-overlay" id="techsome-menu-overlay" aria-hidden="true" tabindex="-1"></div>
 	<div class="techsome-container techsome-header__inner">
 		<div class="techsome-header__brand">
 			<?php if ( has_custom_logo() ) : ?>
@@ -29,6 +30,10 @@ $cta_url  = techsome_mod( 'techsome_header_cta_url', '#' );
 		</button>
 
 		<div class="techsome-header__nav-wrap" id="techsome-primary-nav">
+			<button type="button" class="techsome-menu-close" aria-label="<?php esc_attr_e( 'Close menu', 'techsome' ); ?>">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<span class="techsome-header__nav-spacer" aria-hidden="true"></span>
 			<nav class="techsome-nav" aria-label="<?php esc_attr_e( 'Primary menu', 'techsome' ); ?>">
 				<?php
 				wp_nav_menu(
@@ -42,11 +47,13 @@ $cta_url  = techsome_mod( 'techsome_header_cta_url', '#' );
 				);
 				?>
 			</nav>
-			<?php if ( $cta_text && $cta_url ) : ?>
-				<div class="techsome-header__actions">
-					<a class="techsome-btn techsome-btn--primary" href="<?php echo esc_url( $cta_url ); ?>"><?php echo esc_html( $cta_text ); ?></a>
-				</div>
-			<?php endif; ?>
+			<div class="techsome-header__nav-spacer techsome-header__nav-spacer--right">
+				<?php if ( $cta_text && $cta_url ) : ?>
+					<div class="techsome-header__actions">
+						<a class="techsome-btn techsome-btn--primary" href="<?php echo esc_url( $cta_url ); ?>"><?php echo esc_html( $cta_text ); ?></a>
+					</div>
+				<?php endif; ?>
+			</div>
 		</div>
 	</div>
 </header>

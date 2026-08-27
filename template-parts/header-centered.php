@@ -14,13 +14,14 @@ $cta_text = techsome_mod( 'techsome_header_cta_text', __( 'Get CharityGlow', 'te
 $cta_url  = techsome_mod( 'techsome_header_cta_url', '#' );
 ?>
 <header class="techsome-header techsome-header--centered<?php echo $sticky ? ' techsome-header--sticky' : ''; ?>" role="banner">
+	<div class="techsome-menu-overlay" id="techsome-menu-overlay" aria-hidden="true" tabindex="-1"></div>
 	<div class="techsome-container techsome-header__inner">
 		<button type="button" class="techsome-menu-toggle" aria-expanded="false" aria-controls="techsome-primary-nav" aria-label="<?php esc_attr_e( 'Toggle menu', 'techsome' ); ?>">
 			<span class="techsome-menu-toggle__text"><?php esc_html_e( 'Menu', 'techsome' ); ?></span>
 			<span class="techsome-menu-toggle__icon" aria-hidden="true"></span>
 		</button>
 
-		<div class="techsome-header__nav-wrap techsome-header__nav-wrap--left" id="techsome-primary-nav">
+		<div class="techsome-header__nav-wrap techsome-header__nav-wrap--left" id="techsome-primary-nav-left">
 			<nav class="techsome-nav" aria-label="<?php esc_attr_e( 'Primary menu', 'techsome' ); ?>">
 				<?php
 				wp_nav_menu(
@@ -45,6 +46,9 @@ $cta_url  = techsome_mod( 'techsome_header_cta_url', '#' );
 		</div>
 
 		<div class="techsome-header__nav-wrap techsome-header__nav-wrap--right" id="techsome-primary-nav">
+			<button type="button" class="techsome-menu-close" aria-label="<?php esc_attr_e( 'Close menu', 'techsome' ); ?>">
+				<span aria-hidden="true">&times;</span>
+			</button>
 			<nav class="techsome-nav techsome-nav--right" aria-label="<?php esc_attr_e( 'Primary menu', 'techsome' ); ?>">
 				<?php
 				wp_nav_menu(
